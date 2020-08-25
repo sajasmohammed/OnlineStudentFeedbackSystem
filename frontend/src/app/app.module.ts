@@ -13,18 +13,9 @@ import { ResponseResetComponent } from './components/admin/password/response-res
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
-import { StudentComponent } from './components/student/student.component';
-import { StudentLoginComponent } from './components/student/student-login/student-login.component';
-import { StudentSignupComponent } from './components/student/student-signup/student-signup.component';
-import { StudentProfileComponent } from './components/student/student-profile/student-profile.component';
-import { StudentPasswordComponent } from './components/student/student-password/student-password.component';
-import { StudentResponseResetComponent } from './components/student/student-password/student-response-reset/student-response-reset.component';
-import { HodComponent } from './components/hod/hod.component';
-import { HodLoginComponent } from './components/hod/hod-login/hod-login.component';
-import { HodSignupComponent } from './components/hod/hod-signup/hod-signup.component';
-import { HodProfileComponent } from './components/hod/hod-profile/hod-profile.component';
-import { HodPasswordComponent } from './components/hod/hod-password/hod-password.component';
-import { HodResponseResetComponent } from './components/hod/hod-password/hod-response-reset/hod-response-reset.component';
+import { HodProfileComponent } from './components/admin/hod-profile/hod-profile.component';
+import { StudentProfileComponent } from './components/admin/student-profile/student-profile.component';
+import { StaffProfileComponent } from './components/admin/staff-profile/staff-profile.component';
 
 
 @NgModule({
@@ -38,18 +29,9 @@ import { HodResponseResetComponent } from './components/hod/hod-password/hod-res
     PasswordComponent,
     RequestResetComponent,
     ResponseResetComponent,
-    StudentComponent,
-    StudentLoginComponent,
-    StudentSignupComponent,
-    StudentProfileComponent,
-    StudentPasswordComponent,
-    StudentResponseResetComponent,
-    HodComponent,
-    HodLoginComponent,
-    HodSignupComponent,
     HodProfileComponent,
-    HodPasswordComponent,
-    HodResponseResetComponent,
+    StudentProfileComponent,
+    StaffProfileComponent,
 
   ],
   imports: [

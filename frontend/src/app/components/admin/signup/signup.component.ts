@@ -18,29 +18,29 @@ export class SignupComponent implements OnInit {
     password_confirmation: null
   };
   public error = null;
-
+  public response=null;
   constructor(
     private Jarwis: JarwisService,
     private Token: TokenService,
-    private router: Router
   ) { }
 
   onSubmit() {
     this.Jarwis.signup(this.form).subscribe(
       data => this.handleResponse(data),
-      error => this.handleError(error)
+      error => this.handleError(error),
+      
     );
   }
   handleResponse(data) {
     this.Token.handle(data.access_token);
-    this.router.navigateByUrl('/admin-profile');
+    this.response = 'User Created Successfully...';
   }
 
   handleError(error) {
-    this.error = error.error.error;
+    this.error = error.error.message;
   }
 
-  ngOnInit() {
+   ngOnInit() {
   }
 
 }

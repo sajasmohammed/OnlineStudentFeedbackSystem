@@ -4,13 +4,13 @@ import { TokenService } from 'src/app/Services/token.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-staff-profile',
+  templateUrl: './staff-profile.component.html',
+  styleUrls: ['./staff-profile.component.css']
 })
-export class ProfileComponent implements OnInit {
-
+export class StaffProfileComponent implements OnInit {
   public loggedIn: boolean;
+  
   constructor(
     private Auth: AuthService,
     private Token: TokenService,
@@ -18,10 +18,11 @@ export class ProfileComponent implements OnInit {
   ) { }
   userDisplayName = '';
   userType = '';
+  
   ngOnInit(): void {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);
     this.userDisplayName = sessionStorage.getItem('loggedUser');
     this.userType = sessionStorage.getItem('loggedUserType');
   }
-
+ 
 }

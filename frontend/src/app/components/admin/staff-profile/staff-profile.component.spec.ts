@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HodResponseResetComponent } from './hod-response-reset.component';
+import { StaffProfileComponent } from './staff-profile.component';
 
-describe('HodResponseResetComponent', () => {
-  let component: HodResponseResetComponent;
-  let fixture: ComponentFixture<HodResponseResetComponent>;
+describe('StaffProfileComponent', () => {
+  let component: StaffProfileComponent;
+  let fixture: ComponentFixture<StaffProfileComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HodResponseResetComponent ]
+      declarations: [ StaffProfileComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HodResponseResetComponent);
+    fixture = TestBed.createComponent(StaffProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
