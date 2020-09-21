@@ -23,6 +23,7 @@ export class HodProfileComponent implements OnInit {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);
     this.userDisplayName = sessionStorage.getItem('loggedUser');
     this.userType = sessionStorage.getItem('loggedUserType');
+
   }
   logout(event: MouseEvent){
     event.preventDefault();

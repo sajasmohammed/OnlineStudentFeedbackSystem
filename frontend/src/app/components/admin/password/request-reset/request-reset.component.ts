@@ -1,6 +1,6 @@
+import { ToastrService } from 'ngx-toastr';
 import { JarwisService } from './../../../../Services/jarwis.service';
 import { Component, OnInit } from '@angular/core';
-import { SnotifyService } from 'ng-snotify';
 
 @Component({
   selector: 'app-request-reset',
@@ -15,8 +15,8 @@ export class RequestResetComponent implements OnInit {
 
   constructor(
     private Jarvis: JarwisService,
-    private notify: SnotifyService,
-    private Notfiy:SnotifyService
+    private notify: ToastrService,
+    private Notfiy:ToastrService
   ) { }
 
   ngOnInit() {
@@ -24,15 +24,15 @@ export class RequestResetComponent implements OnInit {
 
 
   onSubmit() {
-    this.Notfiy.info('Wait...' ,{timeout:5000})
+    this.Notfiy.info('Wait...' )
     this.Jarvis.sendPasswordResetLink(this.form).subscribe(
       data => this.handleResponse(data),
       error => this.notify.error(error.error.error)
     );
   }
 
-  handleResponse(res) {
-    this.Notfiy.success(res.data,{timeout:0});
+  handleResponse(successResponse) {
+    this.Notfiy.success(successResponse.data);
     this.form.email = null;
   }
 

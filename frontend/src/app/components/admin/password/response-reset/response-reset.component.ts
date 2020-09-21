@@ -1,7 +1,7 @@
+import { ToastrService } from 'ngx-toastr';
 import { JarwisService } from './../../../../Services/jarwis.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import {  SnotifyService } from 'ng-snotify';
 
 @Component({
   selector: 'app-response-reset',
@@ -20,7 +20,7 @@ export class ResponseResetComponent implements OnInit {
     private route:ActivatedRoute,
     private Jarwis: JarwisService,
     private router:Router,
-    private Notify:SnotifyService
+    private Notify:ToastrService
   ) { 
     route.queryParams.subscribe(params => {
       this.form.resetToken = params['token']
@@ -30,23 +30,17 @@ export class ResponseResetComponent implements OnInit {
   onSubmit(){
    this.Jarwis.changePassword(this.form).subscribe(
      data => this.handleResponse(data),
-     error => this.handleError(error)
+     error => this.Notify.error(error.error.error)
    )
   }
-  handleResponse(data){
-
-    let _router = this.router;
-    this.Notify.confirm('Done!, Now login with new Password', {
-      buttons:[
-        {text: 'Okay', 
-        action: toster =>{
-           _router.navigateByUrl('/admin-login'),
-           this.Notify.remove(toster.id)
-          }
-      },
-      ]
-    })
-    
+  handleResponse(response){
+    if(this.Notify.success(response.data)){
+      this.form.email = null;
+      this.form.password = null;
+      this.form.password_confirmation = null;
+      this.form.resetToken = null;
+      this.router.navigateByUrl('');
+    }    
   }
 
   handleError(error){

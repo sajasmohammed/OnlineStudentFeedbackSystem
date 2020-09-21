@@ -12,10 +12,12 @@ import { RequestResetComponent } from './components/admin/password/request-reset
 import { ResponseResetComponent } from './components/admin/password/response-reset/response-reset.component';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
-import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 import { HodProfileComponent } from './components/admin/hod-profile/hod-profile.component';
 import { StudentProfileComponent } from './components/admin/student-profile/student-profile.component';
 import { StaffProfileComponent } from './components/admin/staff-profile/staff-profile.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { SnotifyModule, ToastDefaults, SnotifyService } from 'ng-snotify';
 
 
 @NgModule({
@@ -32,14 +34,16 @@ import { StaffProfileComponent } from './components/admin/staff-profile/staff-pr
     HodProfileComponent,
     StudentProfileComponent,
     StaffProfileComponent,
-
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    SnotifyModule
+    BrowserAnimationsModule,
+    SnotifyModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     { provide: 'SnotifyToastConfig', useValue: ToastDefaults},

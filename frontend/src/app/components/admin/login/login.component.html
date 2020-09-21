@@ -3,30 +3,22 @@
         <section class="col-12 col-sm-6 col-md-3 ">
 
             <form class="form-container" #loginForm=ngForm (ngSubmit)="onSubmit() ">
-
                 <div class="mt-2"><strong>Login Here</strong></div>
-
-                <div class="alert alert-warning alert-dismissible fade show" role="alert" [hidden]="!error ">
-                    <strong> {{error}}!</strong> You should check in on some of those fields below.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail1 ">Email Address</label>
                     <input type="email" name="email " class="form-control " id="exampleInputEmail1 " aria-describedby="emailHelp " placeholder="Enter email " [(ngModel)]="form.email " required>
                     <small id="emailHelp " class="form-text text-muted ">We'll never share your email with anyone else.</small>
                 </div>
-                <div class="form-group ">
-                    <label for="exampleInputPassword1 ">Password</label>
-                    <input type="password " name="password " class="form-control " id="exampleInputPassword1 " placeholder="Password " [(ngModel)]="form.password " required>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" name="password" class="form-control " id="exampleInputPassword1 " placeholder="Password " [(ngModel)]="form.password " required>
                 </div>
                 <button type="submit " class="btn btn-primary btn-block " [disabled]="!loginForm.valid ">Sign in</button>
 
-                <a routerLink="/admin-signup" class="btn btn-info btn-block ">Sign Up</a>
+                <!-- <a routerLink="/admin-signup" class="btn btn-info btn-block ">Sign Up</a> -->
                 <small class="float-right mt-2 ">
-                    <a routerLink="/admin-request-reset ">Reset Password</a>
+                    <a routerLink="/admin-request-reset">Reset Password</a>
                   </small>
             </form>
         </section>
