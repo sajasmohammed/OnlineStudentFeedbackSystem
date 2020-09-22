@@ -17,7 +17,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        return Subject::all();
+        $subjects = Subject::all();
+        return $this->sendResponse($subjects->toArray(), 'Subjects retrieved successfully.');
     }
 
     /**
@@ -32,12 +33,12 @@ class SubjectController extends Controller
         ]);
 
         if($validator->fails()){
-            return Response::json(['error' => $validator->errors()->all()], 409);
+            return response()->json(['error' => $validator->errors()->all()], 409);
         }
         $subject=new Subject();
         $subject->subname=$request->subname;
         $subject->save();
-        return Response::json(['message'=>'User Successfully Added']);
+        return Respone()->json(['message'=>'User Successfully Added']);
         
     }
 
@@ -49,7 +50,21 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        return Subject::create($request->all());
+        $input = $request->all();
+   
+        $validator = Validator::make($input, [
+            'subname' => 'required',
+        ]);
+   
+        if($validator->fails()){
+            return $this->sendError('The Field is required.', $validator->errors());       
+        }
+   
+        $subject = Subject::create($input);
+   
+        return $this->sendResponse($subject, 'Subject created successfully.');
+  
+//        return Subject::create($request->all());
     }
 
     /**
@@ -67,7 +82,7 @@ class SubjectController extends Controller
                 ->orwhere('subjects.subname', 'LIKE', '%'.$value.'%');
                 
         })->get();
-        return Response::json(['subjects'=>$subjects]);
+        return response()->json(['subjects'=>$subjects]);
     }
 
     /**
@@ -95,13 +110,13 @@ class SubjectController extends Controller
         ]);
 
         if($validator->fails()){
-            return Response::json(['error' => $validator->errors()->all()], 409);
+            return response()->json(['error' => $validator->errors()->all()], 409);
         }
         $subject=Subject::find($request->id);
         $subject->subname=$request->subname;
         $subject->save();
         
-        return Response::json(['message'=>'User Successfully Updated']);
+        return response()->json(['message'=>'User Successfully Updated']);
         
     }
 
@@ -118,14 +133,15 @@ class SubjectController extends Controller
         ]);
 
         if($validator->fails()){
-            return Response::json(['error' => $validator->errors()->all()], 409);
+            return response()->json(['error' => $validator->errors()->all()], 409);
         }
        
         try{
             $subject=Subject::where('id', $request->id)->delete();
-            return Response::json(['message'=>'User Successfully Deleted']);
+            return response()->json(['message'=>'User Successfully Deleted']);
+
         }catch(Exception $e){
-            return Response::json(['error'=>('User canot be Deleted')], 409);
+            return response()->json(['error'=>('User canot be Deleted')], 409);
         }   
 
     }

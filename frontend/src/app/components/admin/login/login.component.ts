@@ -69,9 +69,6 @@ export class LoginComponent implements OnInit {
     
   }
 
-  handlerError(error){
-      this.error = error.error.error;
-  }
   
   ngOnInit(): void {
   }

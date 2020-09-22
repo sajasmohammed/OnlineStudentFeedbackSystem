@@ -1,7 +1,13 @@
+import { ToastrService } from 'ngx-toastr';
+import { JarwisService } from './../../../Services/jarwis.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/Services/auth.service';
 import { TokenService } from 'src/app/Services/token.service';
 import { Router } from '@angular/router';
+//import * as $ from 'jquery';
+import { error } from 'jquery';
+
+declare var $: any;
 
 @Component({
   selector: 'app-hod-profile',
@@ -15,7 +21,9 @@ export class HodProfileComponent implements OnInit {
   constructor(
     private Auth: AuthService,
     private Token: TokenService,
-    private router: Router
+    private router: Router,
+    private jarwis: JarwisService,
+    private toastr: ToastrService
   ) { }
   userDisplayName = '';
   userType = '';
@@ -25,6 +33,18 @@ export class HodProfileComponent implements OnInit {
     this.userType = sessionStorage.getItem('loggedUserType');
 
   }
+
+  add(){
+    var form=new FormData();
+
+    form.append("subname", $("#addInputName").val());
+
+    this.jarwis.addData(form).subscribe(
+      data => this.handlerResponse(data),
+      error => this.toastr.error(error.error.message)
+    )
+
+  }
   logout(event: MouseEvent){
     event.preventDefault();
     this.Token.remove();
@@ -32,4 +52,7 @@ export class HodProfileComponent implements OnInit {
     this.router.navigateByUrl('/login');
   }
 
+  handlerResponse(data){
+    this.toastr.success(data.message);
+  }
 }
