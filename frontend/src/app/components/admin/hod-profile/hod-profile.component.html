@@ -37,7 +37,7 @@
                         <td>{{s.id}}</td>
                         <td>{{s.subname}}</td>
                         <td>
-                            <a href="#" class="text-warning" data-toggle="tooltip" data-toggle="modal" data-target="#Modal_update">Update</a>
+                            <a href="#" (click)="showUpdateModel(s.id)" class="text-warning" data-toggle="tooltip" data-toggle="modal" data-target="#Modal_update">Update</a>
                             <br><a href="#" (click)="deleteSubject(s.id)" class="text-danger" data-toggle="tooltip">Delete</a>
                         </td>
                     </tr>
@@ -90,14 +90,12 @@
                     <div class="col-md-6">Subject Name</div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6"><input id="updateInputName" class="form-control"></div>
-                    <div class="col-md-6"><input id="updateInputMobile" class="form-control"></div>
-
+                    <div class="col-md-6"><input id="updateInputSubName" class="form-control"></div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" ata-dismiss="modal">Update</button>
+                <button (click)="updateSub(id)" type="submit" class="btn btn-primary">Update</button>
             </div>
         </div>
     </div>

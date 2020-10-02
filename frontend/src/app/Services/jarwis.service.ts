@@ -41,9 +41,9 @@ export class JarwisService {
   deleteSubject(id){
     return this.http.post(`${this.baseUrl}/deleteSubjects?id=`+id, null);
   }
-  // updateSubject(form){
-  //   return this.http.post(`${this.baseUrl}/updateSubjects`, form);
-  // }
+  updateSubject(form){
+    return this.http.post(`${this.baseUrl}/updateSubjects`, form);
+  }
   // showSubject(id){
   //   return this.http.get(`${this.baseUrl}/showSubjects`);
   // }

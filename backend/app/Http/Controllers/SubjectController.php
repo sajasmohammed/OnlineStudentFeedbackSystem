@@ -64,25 +64,29 @@ class SubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        // $validator = Validator::make($request->all(),[
-        //     'subname' => 'required'
-        // ]);
-
-        // if($validator->fails()){
-        //     return $this->sendError(['error' => $validator->errors()->all()], 409);
-        // }
-        // $subject=Subject::find($request->id);
-        // $subject->subname=$request->subname;
-        // $subject->save();
-        
-        // return $this->sendResponse(['message'=>'User Successfully Updated']);
-
-        if ($id != null) {
-            Subject::where('id', $id)->update($request->all());  
+      
+        $validator = Validator::make($request->all(),[
+            'subname'=>'required',
+        ]);
+   
+        if($validator->fails()){
+            $arr=array('status'=>'true', 'message'=>$validator->errors()->all());    
+            return response()->json(['error' => $validator->errors()->all()], 409);   
+        }else{  
+            $check_subject= Subject::where('subname', $request->subname)->get()->toArray();  
+            if($check_subject){
+                $arr=array('status'=>'true', 'errormessage'=>'Subject Already Exists...');          
+            }else{
+                $subject=Subject::find($request->id);
+                $subject->subname=$request->subname;
+                $subject->save();
+                $arr=array('status'=>'true', 'message'=>'Subject Updated Successfully...');    
+            }        
         }
-        
+        echo json_encode($arr);
+      
     }
 
     /**
@@ -98,15 +102,15 @@ class SubjectController extends Controller
         ]);
 
         if($validator->fails()){
-            return $this->sendError(['error' => $validator->errors()->all()], 409);
+            $arr=array('status'=>'true', 'message'=>$validator->errors()->all());    
+            return response()->json(['error' => $validator->errors()->all()], 409);
         }
        
         try{
             $subject=Subject::where('id', $request->id)->delete();
-            return $this->sendResponse(['message'=>'User Successfully Deleted']);
-
+            $arr=array('status'=>'true', 'message'=>'Subject Deleted Successfully');
         }catch(Exception $e){
-            return $this->sendError(['error'=>('User canot be Deleted')], 409);
+            $arr=array('status'=>'true', 'error'=>'Subject can not Delete');
         }  
         
         // if ($id != null) {

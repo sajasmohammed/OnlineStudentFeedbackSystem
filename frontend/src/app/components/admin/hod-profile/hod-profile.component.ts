@@ -17,7 +17,7 @@ declare var $: any;
 export class HodProfileComponent implements OnInit {
 
   public loggedIn: boolean;
-  
+  id:any="";
   subjects:any;
 
   constructor(
@@ -55,15 +55,11 @@ export class HodProfileComponent implements OnInit {
 
     form.append("subname", $("#addInputName").val());
 
-    // this.jarwis.addSubject(form).subscribe( 
-    //   data => this.handlerResponse(data),
-    //   error => this.toastr.error(error.error.message)
-    // )
-
     this.jarwis.addSubject(form).subscribe(res=>{
       var r:any=res;
       if(r.message){
-        this.toastr.success(r.message)
+        this.toastr.success(r.message),
+        this.getSubjects();
       }else{
         this.toastr.error(r.errormessage)
       }
@@ -74,6 +70,36 @@ export class HodProfileComponent implements OnInit {
     })
 
   }
+  updateSub(id){
+    var form=new FormData();
+    form.append("id", this.id);
+    form.append("subname", $("#updateInputSubName").val());
+
+    this.jarwis.updateSubject(form).subscribe(res=>{
+      
+      var r:any=res;
+      if(r.message){
+        this.toastr.success(r.message),
+        this.getSubjects();
+      }else{
+        this.toastr.error(r.errormessage)
+      }
+    }, error=>{
+        error.error.error.forEach(el => {
+            this.toastr.error(el,"Error");
+        });
+    })
+  }
+  
+  showUpdateModel(id){
+    this.subjects.forEach(el => {
+      if(id==el.id){
+        this.id=el.id;
+        $("#updateInputSubName").prop("value", el.subname);
+      } 
+    });
+  }
+
   logout(event: MouseEvent){
     event.preventDefault();
     this.Token.remove();
