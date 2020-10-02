@@ -14,9 +14,9 @@ Route::group([
     Route::post('resetPassword', 'ChangePasswordController@process');
 
     //Subject Api
-    Route::get('subjects', 'SubjectController@index');
-    Route::get('subjects/{id}', 'SubjectController@show');
-    Route::post('subjects', 'SubjectController@store');
-    Route::put('subjects/{id}', 'SubjectController@update');
-    Route::delete('subjects/{id}', 'SubjectController@destroy');
+    Route::get('showSubjects', 'SubjectController@index');
+    Route::get('showSubject/{id}', 'SubjectController@show');
+    Route::any('addSubjects', 'SubjectController@store');
+    Route::put('updateSubjects/{id}', 'SubjectController@update');
+    Route::delete('deleteSubjects/{id}', 'SubjectController@destroy');
 });

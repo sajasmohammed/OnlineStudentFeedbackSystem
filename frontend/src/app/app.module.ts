@@ -17,7 +17,11 @@ import { StudentProfileComponent } from './components/admin/student-profile/stud
 import { StaffProfileComponent } from './components/admin/staff-profile/staff-profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { SnotifyModule, ToastDefaults, SnotifyService } from 'ng-snotify';
+import { DataTablesModule } from 'angular-datatables';
+import { AsidebarComponent } from './components/admin/asidebar/asidebar.component';
+import { FooterComponent } from './components/admin/footer/footer.component';
+import { SidebarComponent } from './components/admin/sidebar/sidebar.component';
+import { TopbarComponent } from './components/admin/topbar/topbar.component';
 
 
 @NgModule({
@@ -34,6 +38,10 @@ import { SnotifyModule, ToastDefaults, SnotifyService } from 'ng-snotify';
     HodProfileComponent,
     StudentProfileComponent,
     StaffProfileComponent,
+    AsidebarComponent,
+    FooterComponent,
+    SidebarComponent,
+    TopbarComponent,
     
   ],
   imports: [
@@ -42,12 +50,11 @@ import { SnotifyModule, ToastDefaults, SnotifyService } from 'ng-snotify';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    SnotifyModule,
+    DataTablesModule,
+    
     ToastrModule.forRoot()
   ],
   providers: [
-    { provide: 'SnotifyToastConfig', useValue: ToastDefaults},
-    SnotifyService
   ],
   bootstrap: [AppComponent]
 })

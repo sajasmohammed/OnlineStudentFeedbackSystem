@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Subject;
 use Illuminate\Support\Facades\Validator;
 use mysql_xdevapi\Exception;
+
 use Illuminate\Support\Facades\Response;
 
 class SubjectController extends Controller
@@ -15,32 +16,11 @@ class SubjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $subjects = Subject::all();
-        return $this->sendResponse($subjects->toArray(), 'Subjects retrieved successfully.');
+        return Subject::get();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $validator = Validator::make($request->all(),[
-            'subname' => 'required'
-        ]);
-
-        if($validator->fails()){
-            return response()->json(['error' => $validator->errors()->all()], 409);
-        }
-        $subject=new Subject();
-        $subject->subname=$request->subname;
-        $subject->save();
-        return Respone()->json(['message'=>'User Successfully Added']);
-        
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -50,50 +30,31 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-   
-        $validator = Validator::make($input, [
-            'subname' => 'required',
+        $validator = Validator::make($request->all(),[
+            'subname'=>'required',
         ]);
    
         if($validator->fails()){
-            return $this->sendError('The Field is required.', $validator->errors());       
+            $arr=array('status'=>'true', 'message'=>$validator->errors()->all());    
+            return response()->json(['error' => $validator->errors()->all()], 409);   
+        }else{  
+            $check_subject= Subject::where('subname', $request->subname)->get()->toArray();  
+            if($check_subject){
+                $arr=array('status'=>'true', 'errormessage'=>'Subject Already Exists...');          
+            }else{
+                $s =new Subject();
+                $s->subname=$request->subname;
+                $s->save();
+                $arr=array('status'=>'true', 'message'=>'Subject Added Successfully...');    
+            }        
         }
-   
-        $subject = Subject::create($input);
-   
-        return $this->sendResponse($subject, 'Subject created successfully.');
-  
-//        return Subject::create($request->all());
+        echo json_encode($arr);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        session(["key" => $request-> keywords]);
-        $subjects=Subject::where(Function ($q){
-            $value = session('key');
-            $q-> where('subjects.id', 'LIKE', '%'.$value.'%')
-                ->orwhere('subjects.subname', 'LIKE', '%'.$value.'%');
-                
-        })->get();
-        return response()->json(['subjects'=>$subjects]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        // Show single product
+        return Subject::find($id);
     }
 
     /**
@@ -105,18 +66,22 @@ class SubjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(),[
-            'subname' => 'required'
-        ]);
+        // $validator = Validator::make($request->all(),[
+        //     'subname' => 'required'
+        // ]);
 
-        if($validator->fails()){
-            return response()->json(['error' => $validator->errors()->all()], 409);
-        }
-        $subject=Subject::find($request->id);
-        $subject->subname=$request->subname;
-        $subject->save();
+        // if($validator->fails()){
+        //     return $this->sendError(['error' => $validator->errors()->all()], 409);
+        // }
+        // $subject=Subject::find($request->id);
+        // $subject->subname=$request->subname;
+        // $subject->save();
         
-        return response()->json(['message'=>'User Successfully Updated']);
+        // return $this->sendResponse(['message'=>'User Successfully Updated']);
+
+        if ($id != null) {
+            Subject::where('id', $id)->update($request->all());  
+        }
         
     }
 
@@ -133,16 +98,21 @@ class SubjectController extends Controller
         ]);
 
         if($validator->fails()){
-            return response()->json(['error' => $validator->errors()->all()], 409);
+            return $this->sendError(['error' => $validator->errors()->all()], 409);
         }
        
         try{
             $subject=Subject::where('id', $request->id)->delete();
-            return response()->json(['message'=>'User Successfully Deleted']);
+            return $this->sendResponse(['message'=>'User Successfully Deleted']);
 
         }catch(Exception $e){
-            return response()->json(['error'=>('User canot be Deleted')], 409);
-        }   
+            return $this->sendError(['error'=>('User canot be Deleted')], 409);
+        }  
+        
+        // if ($id != null) {
+        //     $subject = Subject::find($id);
+        //     $subject->delete();    
+        // }
 
     }
 }
