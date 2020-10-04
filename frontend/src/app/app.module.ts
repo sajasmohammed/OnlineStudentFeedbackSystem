@@ -18,10 +18,15 @@ import { StaffProfileComponent } from './components/admin/staff-profile/staff-pr
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { DataTablesModule } from 'angular-datatables';
-import { AsidebarComponent } from './components/admin/asidebar/asidebar.component';
 import { FooterComponent } from './components/admin/footer/footer.component';
-import { SidebarComponent } from './components/admin/sidebar/sidebar.component';
 import { TopbarComponent } from './components/admin/topbar/topbar.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { CourseComponent } from './components/admin/course/course.component';
+import { SubjectComponent } from './components/admin/subject/subject.component';
+import { SidebarComponent } from './components/admin/sidebar/sidebar.component';
+import { BatchComponent } from './components/admin/batch/batch.component';
+import { StaffComponent } from './components/admin/staff/staff.component';
 
 
 @NgModule({
@@ -38,10 +43,13 @@ import { TopbarComponent } from './components/admin/topbar/topbar.component';
     HodProfileComponent,
     StudentProfileComponent,
     StaffProfileComponent,
-    AsidebarComponent,
     FooterComponent,
-    SidebarComponent,
     TopbarComponent,
+    CourseComponent,
+    SubjectComponent,
+    SidebarComponent,
+    BatchComponent,
+    StaffComponent,
     
   ],
   imports: [
@@ -51,7 +59,8 @@ import { TopbarComponent } from './components/admin/topbar/topbar.component';
     HttpClientModule,
     BrowserAnimationsModule,
     DataTablesModule,
-    
+    Ng2SearchPipeModule,
+    NgxPaginationModule,   
     ToastrModule.forRoot()
   ],
   providers: [

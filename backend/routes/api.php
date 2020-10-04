@@ -15,8 +15,25 @@ Route::group([
 
     //Subject Api
     Route::any('showSubjects', 'SubjectController@index');
-    Route::any('showSubject', 'SubjectController@show');
     Route::any('addSubjects', 'SubjectController@store');
     Route::any('updateSubjects', 'SubjectController@update');
     Route::any('deleteSubjects', 'SubjectController@destroy');
+
+    //Course Api
+    Route::any('showCourses', 'CourseController@index');
+    Route::any('addCourses', 'CourseController@store');
+    Route::any('updateCourses', 'CourseController@update');
+    Route::any('deleteCourses', 'CourseController@destroy');
+
+    //Batch Api
+    Route::any('showBatches', 'BatchesController@index');
+    Route::any('addBatches', 'BatchesController@store');
+    Route::any('updateBatches', 'BatchesController@update');
+    Route::any('deleteBatches', 'BatchesController@destroy');
+
+    //Staff Api
+    Route::any('showStaffs', 'StaffController@index');
+    Route::any('addStaffs', 'StaffController@store');
+    Route::any('updateStaffs', 'StaffController@update');
+    Route::any('deleteStaffs', 'StaffController@destroy');
 });

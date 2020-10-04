@@ -64,6 +64,8 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl('/staff-profile');
       this.successMessage();
     }else{
+      this.Auth.changeAuthStatus(false);
+      this.router.navigateByUrl('');
       this.notify.error("The User Type is Not Found, Contact Your Administrator...")
     }
     

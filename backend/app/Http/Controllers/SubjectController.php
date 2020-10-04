@@ -35,26 +35,24 @@ class SubjectController extends Controller
         ]);
    
         if($validator->fails()){
-            $arr=array('status'=>'true', 'message'=>$validator->errors()->all());    
             return response()->json(['error' => $validator->errors()->all()], 409);   
         }else{  
             $check_subject= Subject::where('subname', $request->subname)->get()->toArray();  
             if($check_subject){
                 $arr=array('status'=>'true', 'errormessage'=>'Subject Already Exists...');          
             }else{
-                $s =new Subject();
-                $s->subname=$request->subname;
-                $s->save();
+                $subject =new Subject();
+                $subject->subname=$request->subname;
+                $subject->save();
                 $arr=array('status'=>'true', 'message'=>'Subject Added Successfully...');    
             }        
         }
         echo json_encode($arr);
     }
 
-    public function show($id)
+    public function show(Request $request)
     {
-        // Show single product
-        return Subject::find($id);
+        
     }
 
     /**
@@ -72,12 +70,11 @@ class SubjectController extends Controller
         ]);
    
         if($validator->fails()){
-            $arr=array('status'=>'true', 'message'=>$validator->errors()->all());    
             return response()->json(['error' => $validator->errors()->all()], 409);   
         }else{  
             $check_subject= Subject::where('subname', $request->subname)->get()->toArray();  
             if($check_subject){
-                $arr=array('status'=>'true', 'errormessage'=>'Subject Already Exists...');          
+                $arr=array('status'=>'true', 'errormessage'=>'Subject Already Updated...');          
             }else{
                 $subject=Subject::find($request->id);
                 $subject->subname=$request->subname;
@@ -95,28 +92,15 @@ class SubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $validator = Validator::make($request->all(),[
-            'id' => 'required'
-        ]);
-
-        if($validator->fails()){
-            $arr=array('status'=>'true', 'message'=>$validator->errors()->all());    
-            return response()->json(['error' => $validator->errors()->all()], 409);
-        }
-       
+      
         try{
             $subject=Subject::where('id', $request->id)->delete();
             $arr=array('status'=>'true', 'message'=>'Subject Deleted Successfully');
         }catch(Exception $e){
             $arr=array('status'=>'true', 'error'=>'Subject can not Delete');
         }  
-        
-        // if ($id != null) {
-        //     $subject = Subject::find($id);
-        //     $subject->delete();    
-        // }
-
+        echo json_encode($arr);
     }
 }

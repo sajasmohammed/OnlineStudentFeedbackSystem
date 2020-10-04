@@ -1,0 +1,111 @@
+<h3 style="text-align: center;">Batch Table</h3>
+
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-md-2">
+                        <h2>Batch <b></b></h2>
+                    </div>
+                    <div class="col-sm-7">
+                        <Button data-toggle="modal" data-target="#Modal_add" class="btn btn-primary">Add</Button>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="search-box">
+                            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" Start searching for a s by id or subname placeholder="Search">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table table-striped table-hover table-bordered ">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Batch Number</th>
+                        <th>Batch Name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let batch of batches | filter:searchText">
+                        <td>{{batch.id}}</td>
+                        <td>{{batch.batch_no}}</td>
+                        <td>{{batch.batch_name}}</td>
+                        <td>
+                            <a href="#" (click)="showUpdateModel(batch.id)" class="text-warning" data-toggle="tooltip" data-toggle="modal" data-target="#Modal_update">Update</a>
+                            <br><a href="#" (click)="delete(batch.id)" class="text-danger" data-toggle="tooltip">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal-Add -->
+<div class="modal fade" id="Modal_add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true ">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">Batch No</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"><input id="addInputBatchNumber" class="form-control"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">Batch Name</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"><input id="addInputBatchName" class="form-control"></div>
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button (click)="add()" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal-Update -->
+<div class="modal fade" id="Modal_update" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">Batch No</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"><input id="updateInputBatchNumber" class="form-control"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">Batch Name</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"><input id="updateInputBatchName" class="form-control"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button (click)="update(id)" type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
