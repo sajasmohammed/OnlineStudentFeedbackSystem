@@ -57,17 +57,19 @@
         </button>
             </div>
             <div class="modal-body">
+ 
                 <div class="row">
-                    <div class="col-md-6">Batch No</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6"><input id="addInputBatchNumber" class="form-control"></div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">Batch Name</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6"><input id="addInputBatchName" class="form-control"></div>
+                    <div class="col-md-6"><input id="addInputBatchNumber" class="form-control" placeholder="Batch No"></div>
+                
+                    <div class="col-md-6">
+                        <select class="form-control" id="addInputBatchName">
+                            <option>Select One</option>
+                            <option *ngFor="let course of courses" [ngValue]="course.course_name">
+                            {{ course.course_name}}
+                            </option>
+                        </select>
+                    </div>
+                    <!-- <div class="col-md-6"><input id="addInputBatchName" class="form-control"></div> -->
                 </div>
                 
             </div>
@@ -89,17 +91,19 @@
         </button>
             </div>
             <div class="modal-body">
+               
+               
                 <div class="row">
-                    <div class="col-md-6">Batch No</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6"><input id="updateInputBatchNumber" class="form-control"></div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">Batch Name</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6"><input id="updateInputBatchName" class="form-control"></div>
+                    <div class="col-md-6"><input id="updateInputBatchNumber" [disabled]="true" class="form-control" placeholder="Batch No"></div>
+                
+                    <div class="col-md-6">
+                        <select class="form-control" id="updateInputBatchName">
+                            <option>Select One</option>
+                            <option *ngFor="let course of courses" [ngValue]="course.course_name">
+                            {{ course.course_name}}
+                            </option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">

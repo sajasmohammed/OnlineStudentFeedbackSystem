@@ -17,10 +17,12 @@ export class StaffComponent implements OnInit {
     private http: HttpClient
   ) { 
     this.getStaffs();
+    this.getSubject();
   }
 
   id:any="";
   staffs:any;
+  subjects:any;
   searchText
 
   ngOnInit(): void {
@@ -30,6 +32,11 @@ export class StaffComponent implements OnInit {
   getStaffs() {
     return this.http.get('http://localhost:8000/api/showStaffs').subscribe(res => {
       this.staffs = res;
+  });
+  }
+  getSubject() {
+    return this.http.get('http://localhost:8000/api/showSubjects').subscribe(res => {
+      this.subjects = res;
   });
   }
   

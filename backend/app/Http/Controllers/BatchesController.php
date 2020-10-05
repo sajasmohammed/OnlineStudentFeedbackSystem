@@ -47,13 +47,18 @@ class BatchesController extends Controller
         if($validator->fails()){
             return response()->json(['error' => $validator->errors()->all()], 409);   
         }else{  
+            $check_batchno= Batches::where('batch_no', $request->batch_no)->get()->toArray(); 
+            if($check_batchno){
+                $arr=array('status'=>'true', 'errormessage'=>'Batch Already Exists...');  
+            }
+            else{
             
                 $batches =new Batches();
                 $batches->batch_no=$request->batch_no;
                 $batches->batch_name=$request->batch_name;
                 $batches->save();
                 $arr=array('status'=>'true', 'message'=>'Batch Added Successfully...');    
-                 
+            }  
         }
         echo json_encode($arr);
     }
@@ -96,12 +101,14 @@ class BatchesController extends Controller
    
         if($validator->fails()){
             return response()->json(['error' => $validator->errors()->all()], 409);   
-        }else{  
+        }else{ 
+
                 $batches=Batches::find($request->id);
                 $batches->batch_no=$request->batch_no;
                 $batches->batch_name=$request->batch_name;
                 $batches->save();
-                $arr=array('status'=>'true', 'message'=>'Batch Updated Successfully...');              
+                $arr=array('status'=>'true', 'message'=>'Batch Updated Successfully...');  
+               
         }
         echo json_encode($arr);
     }

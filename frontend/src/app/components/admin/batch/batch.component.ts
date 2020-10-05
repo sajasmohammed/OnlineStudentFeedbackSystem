@@ -16,10 +16,12 @@ export class BatchComponent implements OnInit {
     private http: HttpClient
   ) { 
     this.getBatches();
+    this.getCourses();
   }
 
   id:any="";
   batches:any;
+  courses:any;
   searchText
 
   ngOnInit(): void {
@@ -29,6 +31,11 @@ export class BatchComponent implements OnInit {
   getBatches() {
     return this.http.get('http://localhost:8000/api/showBatches').subscribe(res => {
       this.batches = res;
+  });
+  }
+  getCourses() {
+    return this.http.get('http://localhost:8000/api/showCourses').subscribe(res => {
+      this.courses = res;
   });
   }
   
@@ -62,7 +69,6 @@ export class BatchComponent implements OnInit {
             this.toastr.error(el,"Error");
         });
     })
-
   }
   update(id){
     var form=new FormData();

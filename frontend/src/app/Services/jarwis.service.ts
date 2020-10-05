@@ -66,7 +66,7 @@ export class JarwisService {
     return this.http.post(`${this.baseUrl}/updateBatches`, form);
   }
 
-   //Staffs Module API
+  //Staffs Module API
   addStaff(form){
     return this.http.post(`${this.baseUrl}/addStaffs`, form);
   }
@@ -75,7 +75,5 @@ export class JarwisService {
   }
   updateStaff(form){
     return this.http.post(`${this.baseUrl}/updateStaffs`, form);
-  }
-
-  
+  }  
 }

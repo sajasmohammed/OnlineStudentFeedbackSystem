@@ -47,15 +47,16 @@ class StaffController extends Controller
         if($validator->fails()){
             return response()->json(['error' => $validator->errors()->all()], 409);   
         }else{  
-            $check_staff= Staff::where('name', $request->name)->get()->toArray();  
-            if($check_staff){
-                $arr=array('status'=>'true', 'errormessage'=>'Staff Already Exists...');          
-            }else{
+            $check_subject= Staff::where('subject', $request->subject)->get()->toArray();  
+            if($check_subject){
+                $arr=array('status'=>'true', 'errormessage'=>'Subject Already Exists...');  
+            }
+            else{
                 $staff =new Staff();
                 $staff->name=$request->name;
                 $staff->subject=$request->subject;
                 $staff->save();
-                $arr=array('status'=>'true', 'message'=>'Staff Added Successfully...');    
+                $arr=array('status'=>'true', 'message'=>'Added Successfully...');    
             }        
         }
         echo json_encode($arr);
@@ -99,17 +100,13 @@ class StaffController extends Controller
    
         if($validator->fails()){
             return response()->json(['error' => $validator->errors()->all()], 409);   
-        }else{  
-            $check_satff= Staff::where('name', $request->name)->get()->toArray();  
-            if($check_satff){
-                $arr=array('status'=>'true', 'errormessage'=>'Staff Already Updated...');          
-            }else{
+        }else{    
                 $staff=Staff::find($request->id);
                 $staff->name=$request->name;
                 $staff->subject=$request->subject;
                 $staff->save();
                 $arr=array('status'=>'true', 'message'=>'Staff Updated Successfully...');    
-            }        
+                   
         }
         echo json_encode($arr);
     }
