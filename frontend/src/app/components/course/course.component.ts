@@ -1,55 +1,49 @@
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
-import { JarwisService } from './../../../Services/jarwis.service';
+import { JarwisService } from './../../Services/jarwis.service';
 import { Component, OnInit } from '@angular/core';
+
 declare var $: any;
 
 @Component({
-  selector: 'app-staff',
-  templateUrl: './staff.component.html',
-  styleUrls: ['./staff.component.css']
+  selector: 'app-course',
+  templateUrl: './course.component.html',
+  styleUrls: ['./course.component.css']
 })
-export class StaffComponent implements OnInit {
+export class CourseComponent implements OnInit {
 
+  
   constructor(
     private jarwis: JarwisService,
     private toastr: ToastrService,
     private http: HttpClient
   ) { 
-    this.getStaffs();
-    this.getSubject();
+    this.getCourses();
   }
 
   id:any="";
-  staffs:any;
-  subjects:any;
+  courses:any;
   searchText
 
   ngOnInit(): void {
     
   }
 
-  getStaffs() {
-    return this.http.get('http://localhost:8000/api/showStaffs').subscribe(res => {
-      this.staffs = res;
-  });
-  }
-  getSubject() {
-    return this.http.get('http://localhost:8000/api/showSubjects').subscribe(res => {
-      this.subjects = res;
+  getCourses() {
+    return this.http.get('http://localhost:8000/api/showCourses').subscribe(res => {
+      this.courses = res;
   });
   }
   
   add(){
     var form=new FormData();
-    
-    form.append("name", $("#addInputStaffName").val());
-    form.append("subject", $("#addInputStaffSubject").val());
-    this.jarwis.addStaff(form).subscribe(res=>{
+
+    form.append("course_name", $("#addInputCourseName").val());
+    this.jarwis.addCourse(form).subscribe(res=>{
       var r:any=res;
       if(r.message){
         this.toastr.success(r.message),
-        this.getStaffs();
+        this.getCourses();
       }else{
         this.toastr.error(r.errormessage)
       }
@@ -61,10 +55,10 @@ export class StaffComponent implements OnInit {
 
   }
   delete(id){
-     this.jarwis.deleteStaff(id).subscribe(res=>{
+     this.jarwis.deleteCourse(id).subscribe(res=>{
       var r:any=res;
         this.toastr.success(r.message);
-        this.getStaffs();
+        this.getCourses();
     }, error=>{
         error.error.error.forEach(el => {
             this.toastr.error(el,"Error");
@@ -75,19 +69,17 @@ export class StaffComponent implements OnInit {
   update(id){
     var form=new FormData();
     form.append("id", this.id);
-    form.append("name", $("#updateInputStaffName").val());
-    form.append("subject", $("#updateInputStaffSubject").val());
+    form.append("course_name", $("#updateInputCourseName").val());
 
-    this.jarwis.updateStaff(form).subscribe(res=>{
+    this.jarwis.updateCourse(form).subscribe(res=>{
       
       var r:any=res;
       if(r.message){
         this.toastr.success(r.message),
-        this.getStaffs();
+        this.getCourses();
       }else{
         this.toastr.error(r.errormessage)
       }
-      
     }, error=>{
         error.error.error.forEach(el => {
             this.toastr.error(el,"Error");
@@ -96,12 +88,13 @@ export class StaffComponent implements OnInit {
   }
   
   showUpdateModel(id){
-    this.staffs.forEach(el => {
+    this.courses.forEach(el => {
       if(id==el.id){
         this.id=el.id;
-        $("#updateInputStaffName").prop("value", el.name);
-        $("#updateInputStaffSubject").prop("value", el.subject);
+        $("#updateInputCourseName").prop("value", el.course_name);
       } 
     });
   }
+
+
 }

@@ -1,5 +1,5 @@
-import { TokenService } from './../../../Services/token.service';
-import { JarwisService } from './../../../Services/jarwis.service';
+import { TokenService } from './../../Services/token.service';
+import { JarwisService } from './../../Services/jarwis.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 

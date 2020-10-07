@@ -1,7 +1,7 @@
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from './../../../Services/auth.service';
-import { TokenService } from './../../../Services/token.service';
-import { JarwisService } from './../../../Services/jarwis.service';
+import { AuthService } from './../../Services/auth.service';
+import { TokenService } from './../../Services/token.service';
+import { JarwisService } from './../../Services/jarwis.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 

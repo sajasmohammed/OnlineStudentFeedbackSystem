@@ -1,5 +1,5 @@
 import { ToastrService } from 'ngx-toastr';
-import { JarwisService } from './../../../../Services/jarwis.service';
+import { JarwisService } from './../../../Services/jarwis.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
