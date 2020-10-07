@@ -1,3 +1,6 @@
+import { Router } from '@angular/router';
+import { TokenService } from './Services/token.service';
+import { AuthService } from './Services/auth.service';
 import { ConnectionService } from 'ng-connection-service';
 import { Component } from '@angular/core';
 
@@ -7,20 +10,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  
   title = 'frontend';
 
-  status = 'ONLINE';
-  isConnected = true;
- 
-  constructor(private connectionService: ConnectionService) {
-    this.connectionService.monitor().subscribe(isConnected => {
-      this.isConnected = isConnected;
-      if (this.isConnected) {
-        this.status = "ONLINE";
-      }
-      else {
-        this.status = "OFFLINE";
-      }
-    })
+  public loggedIn: boolean;
+  
+  constructor(
+    private Auth: AuthService,
+    private Token: TokenService,
+    private router: Router,
+  ) { }
+
+  ngOnInit(): void {
+    this.Auth.authStatus.subscribe(value => this.loggedIn = value);
   }
+ 
+ 
 }

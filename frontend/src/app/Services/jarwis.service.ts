@@ -76,4 +76,7 @@ export class JarwisService {
   updateStaff(form){
     return this.http.post(`${this.baseUrl}/updateStaffs`, form);
   }  
+
+  //Send Feedback API
+    
 }
