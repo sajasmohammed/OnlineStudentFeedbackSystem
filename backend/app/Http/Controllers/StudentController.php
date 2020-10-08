@@ -48,9 +48,9 @@ class StudentController extends Controller
         if($validator->fails()){
             return response()->json(['error' => $validator->errors()->all()], 409);   
         }else{  
-            $check_studentid= Student::where('student_id', $request->student_id)->get()->toArray();  
-            if($check_studentid){
-                $arr=array('status'=>'true', 'errormessage'=>'Student Already Exists...');  
+            $check_studentemail= Student::where('student_email', $request->student_email)->get()->toArray();  
+            if($check_studentemail){
+                $arr=array('status'=>'true', 'errormessage'=>'Student Email Already Exists...');  
             }
             else{
                 $student =new Student();
@@ -105,16 +105,8 @@ class StudentController extends Controller
         if($validator->fails()){
             return response()->json(['error' => $validator->errors()->all()], 409);   
         }else{  
-            $check_subjectid= Student::where('subject_id', $request->subject_id)->get()->toArray();  
-            $check_subjectbatchno= Student::where('subject_batchno', $request->subject_batchno)->get()->toArray();  
-            $check_subjectemail= Student::where('subject_email', $request->subject_email)->get()->toArray();  
-            if($check_subjectid){
-                $arr=array('status'=>'true', 'errormessage'=>'Student ID Already Exists...');  
-            }
-            if($check_subjectbatchno){
-                $arr=array('status'=>'true', 'errormessage'=>'Student Batch No Already Exists...');  
-            }
-            if($check_subjectemail){
+            $check_studentemail= Student::where('student_email', $request->student_email)->get()->toArray();  
+            if($check_studentemail){
                 $arr=array('status'=>'true', 'errormessage'=>'Student Email Already Exists...');  
             }
             else{    
@@ -123,7 +115,7 @@ class StudentController extends Controller
                 $student->student_batchno=$request->student_batchno;
                 $student->student_email=$request->student_email;
                 $student->save();
-                $arr=array('status'=>'true', 'message'=>'Staff Updated Successfully...');       
+                $arr=array('status'=>'true', 'message'=>'Student Email Updated Successfully...');       
             }
         }
         echo json_encode($arr);

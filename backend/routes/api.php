@@ -13,6 +13,9 @@ Route::group([
     Route::post('sendPasswordResetLink', 'ResetPasswordController@sendEmail');
     Route::post('resetPassword', 'ChangePasswordController@process');
 
+    //FeedbackForm Api
+    Route::post('requestFeedbackFormLink', 'FeedbackRequestController@sendEmail');
+    Route::post('responseFeedbackFormLink', 'ChangePasswordController@process');
     //Subject Api
     Route::any('showSubjects', 'SubjectController@index');
     Route::any('addSubjects', 'SubjectController@store');

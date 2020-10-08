@@ -87,5 +87,13 @@ export class JarwisService {
   updateStudent(form){
     return this.http.post(`${this.baseUrl}/updateStudents`, form);
   }  
-    
+
+  //Send Feedback Form
+  requestFeedbackFormLink(data) {
+    return this.http.post(`${this.baseUrl}/requestFeedbackFormLink`, data);
+  }
+  responseFeedbackFormLink(data) {
+    return this.http.post(`${this.baseUrl}/responseFeedbackFormLink`, data);
+  }
+  
 }
