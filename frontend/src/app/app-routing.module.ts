@@ -1,3 +1,5 @@
+import { ResponseFeedbackformComponent } from './components/widgets/sendfeedback/response-feedbackform/response-feedbackform.component';
+import { RequestFeedbackformComponent } from './components/widgets/sendfeedback/request-feedbackform/request-feedbackform.component';
 import { StudentComponent } from './components/widgets/student/student.component';
 import { StaffComponent } from './components/widgets/staff/staff.component';
 import { BatchComponent } from './components/widgets/batch/batch.component';
@@ -32,6 +34,8 @@ const appRoute: Routes=[
   { path: 'batch', component: BatchComponent, canActivate: [AfterLoginService]},
   { path: 'staff', component: StaffComponent, canActivate: [AfterLoginService]},
   { path: 'student', component: StudentComponent, canActivate: [AfterLoginService]},
+  { path: 'feedback_request', component: RequestFeedbackformComponent, canActivate: [AfterLoginService]},
+  { path: 'feedback_reponse', component: ResponseFeedbackformComponent, canActivate: [AfterLoginService]},
   { path: '**', component: PageNotFoundComponent },
 
 ];

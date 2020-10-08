@@ -55,6 +55,7 @@ import { RequestEmailComponent } from './components/widgets/sendemail/request-em
     StudentComponent,
     RequestEmailComponent,
     
+    
   ],
   imports: [
     BrowserModule,

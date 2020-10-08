@@ -13,6 +13,9 @@ Route::group([
     Route::post('sendPasswordResetLink', 'ResetPasswordController@sendEmail');
     Route::post('resetPassword', 'ChangePasswordController@process');
 
+    //FeedbackForm Api
+    Route::post('requestFeedbackFormLink', 'FeedbackRequestController@sendEmail');
+    Route::post('responseFeedbackFormLink', 'ChangePasswordController@process');
     //Subject Api
     Route::any('showSubjects', 'SubjectController@index');
     Route::any('addSubjects', 'SubjectController@store');
@@ -36,4 +39,10 @@ Route::group([
     Route::any('addStaffs', 'StaffController@store');
     Route::any('updateStaffs', 'StaffController@update');
     Route::any('deleteStaffs', 'StaffController@destroy');
+
+    //Student Api
+    Route::any('showStudents', 'StudentController@index');
+    Route::any('addStudents', 'StudentController@store');
+    Route::any('updateStudents', 'StudentController@update');
+    Route::any('deleteStudents', 'StudentController@destroy');
 });

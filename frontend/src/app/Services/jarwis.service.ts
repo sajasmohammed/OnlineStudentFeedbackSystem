@@ -77,6 +77,23 @@ export class JarwisService {
     return this.http.post(`${this.baseUrl}/updateStaffs`, form);
   }  
 
-  //Send Feedback API
-    
+  //Student Module API
+  addStudent(form){
+    return this.http.post(`${this.baseUrl}/addStudents`, form);
+  }
+  deleteStudent(id){
+    return this.http.post(`${this.baseUrl}/deleteStudents?id=`+id, null);
+  }
+  updateStudent(form){
+    return this.http.post(`${this.baseUrl}/updateStudents`, form);
+  }  
+
+  //Send Feedback Form
+  requestFeedbackFormLink(data) {
+    return this.http.post(`${this.baseUrl}/requestFeedbackFormLink`, data);
+  }
+  responseFeedbackFormLink(data) {
+    return this.http.post(`${this.baseUrl}/responseFeedbackFormLink`, data);
+  }
+  
 }

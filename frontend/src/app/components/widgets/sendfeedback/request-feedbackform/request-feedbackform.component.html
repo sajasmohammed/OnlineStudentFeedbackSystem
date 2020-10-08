@@ -1,1 +1,65 @@
-<p>request-feedbackform works!</p>
+
+<div class="mt-4 col-8 offset-2">
+    <div class="card">
+        <div class="card-header">Send Feedback Form</div>
+        <div class="card-body">
+            <form #RequestFeedbackForm=ngForm (ngSubmit)="onSubmit()">
+
+
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Enter Student Email" [(ngModel)]="form.email" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-10 offset-2">
+                        <button type="submit" class="btn btn-primary" [disabled]="!RequestFeedbackForm.valid">Send Password Reset Email</button> &nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<h3 style="text-align: center;">Student Table</h3>
+
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-md-2">
+                        <h2>Student <b></b></h2>
+                    </div>
+                   
+                    <div class="col-sm-3">
+                        <div class="search-box">
+                            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" Start searching for a s by id or student_email placeholder="Search">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table table-striped table-hover table-bordered ">
+                <thead>
+                    <tr>
+                        <th>Batch Number</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let student of students | filter:searchText">
+                        <td>{{student.student_batchno}}</td>
+                        <td>{{student.student_email}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
