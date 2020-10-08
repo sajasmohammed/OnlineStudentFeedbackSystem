@@ -36,4 +36,10 @@ Route::group([
     Route::any('addStaffs', 'StaffController@store');
     Route::any('updateStaffs', 'StaffController@update');
     Route::any('deleteStaffs', 'StaffController@destroy');
+
+    //Student Api
+    Route::any('showStudents', 'StudentController@index');
+    Route::any('addStudents', 'StudentController@store');
+    Route::any('updateStudents', 'StudentController@update');
+    Route::any('deleteStudents', 'StudentController@destroy');
 });
