@@ -1,3 +1,5 @@
+import { MainContainerComponent } from './components/layouts/main-container/main-container.component';
+import { FeedbackresultComponent } from './components/widgets/feedbackresult/feedbackresult.component';
 import { ResponseFeedbackformComponent } from './components/widgets/sendfeedback/response-feedbackform/response-feedbackform.component';
 import { RequestFeedbackformComponent } from './components/widgets/sendfeedback/request-feedbackform/request-feedbackform.component';
 import { StudentComponent } from './components/widgets/student/student.component';
@@ -36,6 +38,8 @@ const appRoute: Routes=[
   { path: 'student', component: StudentComponent, canActivate: [AfterLoginService]},
   { path: 'feedback_request', component: RequestFeedbackformComponent, canActivate: [AfterLoginService]},
   { path: 'feedback_reponse', component: ResponseFeedbackformComponent, canActivate: [AfterLoginService]},
+  { path: 'feedback_result', component: FeedbackresultComponent, canActivate: [AfterLoginService]},
+  { path: 'main-container', component: MainContainerComponent, canActivate: [AfterLoginService]},
   { path: '**', component: PageNotFoundComponent },
 
 ];

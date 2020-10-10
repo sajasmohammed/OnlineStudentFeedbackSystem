@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\DB;
 class FeedbackController extends Controller
 {
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return Feedback::get();
+    }
+
     public function process(FeedbackRequest $request)
     {
         return $this->getFeedbackTableRow($request)->count()> 0 ? $this->store($request) : $this->tokenNotFoundResponse();

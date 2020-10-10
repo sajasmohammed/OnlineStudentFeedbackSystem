@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RequestEmailComponent } from './request-email.component';
+import { FeedbackresultComponent } from './feedbackresult.component';
 
-describe('RequestEmailComponent', () => {
-  let component: RequestEmailComponent;
-  let fixture: ComponentFixture<RequestEmailComponent>;
+describe('FeedbackresultComponent', () => {
+  let component: FeedbackresultComponent;
+  let fixture: ComponentFixture<FeedbackresultComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RequestEmailComponent ]
+      declarations: [ FeedbackresultComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RequestEmailComponent);
+    fixture = TestBed.createComponent(FeedbackresultComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
