@@ -1,3 +1,4 @@
+import { AuthService } from './../../../../Services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { JarwisService } from './../../../../Services/jarwis.service';
@@ -12,10 +13,13 @@ declare var $:any;
 })
 export class ResponseFeedbackformComponent implements OnInit {
 
+  public loggedIn: boolean;
+  
   constructor(
     private jarwis: JarwisService,
     private toastr: ToastrService,
-    private http: HttpClient
+    private http: HttpClient,
+    private Auth: AuthService
   ) { 
     this.getStaffs();
     this.getSubject();
@@ -27,7 +31,7 @@ export class ResponseFeedbackformComponent implements OnInit {
   searchText
 
   ngOnInit(): void {
-    
+    this.Auth.authStatus.subscribe(value => this.loggedIn = value);  
   }
 
   getStaffs() {
@@ -45,7 +49,6 @@ export class ResponseFeedbackformComponent implements OnInit {
     var form=new FormData();
 
     
-    form.append("email", $("#addInputEmail").val());
     form.append("lacturer_name", $("#addInputStaffName").val());
     form.append("subject", $("#addInputSubjectName").val());
     form.append("ques1", $("#addInputQus1").val());
