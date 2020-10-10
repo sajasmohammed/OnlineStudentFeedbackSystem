@@ -1,6 +1,3 @@
-import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
-import { TokenService } from 'src/app/Services/token.service';
 import { AuthService } from 'src/app/Services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
