@@ -32,16 +32,4 @@ export class HodProfileComponent implements OnInit {
     this.userDisplayName = sessionStorage.getItem('loggedUser');
     this.userType = sessionStorage.getItem('loggedUserType');
   }
- 
-  logout(event: MouseEvent){
-    event.preventDefault();
-    this.Token.remove();
-    this.Auth.changeAuthStatus(false);
-    this.router.navigateByUrl('/login');
-  }
-
-  handlerResponse(data){
-    this.toastr.success(data.message);
-  }
-  
 }

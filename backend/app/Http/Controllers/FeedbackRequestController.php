@@ -10,6 +10,7 @@ use App\Mail\FeedbackRequestMail;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
+
 class FeedbackRequestController extends Controller
 {
     public function sendEmail(Request $request)
@@ -30,7 +31,7 @@ class FeedbackRequestController extends Controller
 
     public function createToken($email)
     {
-        $oldToken = DB::table('password_resets')->where('email', $email)->first();
+        $oldToken = DB::table('feedbacks')->where('email', $email)->first();
 
         if ($oldToken) {
             return $oldToken->token;
@@ -43,7 +44,7 @@ class FeedbackRequestController extends Controller
 
     public function saveToken($token, $email)
     {
-        DB::table('password_resets')->insert([
+        DB::table('feedbacks')->insert([
             'email' => $email,
             'token' => $token,
             'created_at' => Carbon::now()

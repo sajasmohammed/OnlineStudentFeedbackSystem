@@ -23,8 +23,8 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Student Name</th>
-                        <th>Batch No</th>
+                        <!-- <th>Student Name</th>
+                        <th>Batch No</th> -->
                         <th>Subject</th>
                         <th>Lacturer</th>
                         <th>Answser 1</th>
@@ -35,8 +35,8 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let feed of feedbacks | filter:searchText">
-                        <td>{{feed.studentid}}</td>
-                        <td>{{feed.batch_no}}</td>
+                        <!-- <td>{{feed.studentid}}</td>
+                        <td>{{feed.batch_no}}</td> -->
                         <td>{{feed.subname}}</td>
                         <td>{{feed.name}}</td>
                         <td>{{feed.answer1}}</td>
