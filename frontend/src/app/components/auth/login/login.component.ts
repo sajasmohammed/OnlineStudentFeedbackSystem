@@ -36,6 +36,8 @@ export class LoginComponent implements OnInit {
   successMessage(){
     this.notify.success("Successfully Logged In! Welcome to Dashboard");
   }
+  
+  
   handlerResponse(data){
     sessionStorage.setItem('loggedUser', data.user);
     sessionStorage.setItem('loggedUserType', data.user_type);
@@ -45,11 +47,13 @@ export class LoginComponent implements OnInit {
       this.Auth.changeAuthStatus(true);
       this.router.navigateByUrl('/admin-profile');
       this.successMessage();
+
     }
     else if(data.user_type == 'hod'){
       this.Token.handle(data.access_token);
       this.Auth.changeAuthStatus(true);
       this.router.navigateByUrl('/hod-profile');
+      this.router.navigateByUrl('subject');
       this.successMessage();
     }
     else if(data.user_type == 'student'){
@@ -71,7 +75,6 @@ export class LoginComponent implements OnInit {
     
   }
 
-  
   ngOnInit(): void {
   }
 

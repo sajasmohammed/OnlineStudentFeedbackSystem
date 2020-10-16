@@ -23,7 +23,7 @@
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4"  *ngIf="loggedIn">
             <h1 class="h3 mb-0 text-gray-800">Feedbacks Response</h1>
-            <Button data-toggle="modal" data-target="#Modal_add" class="btn btn-warning">Submit Feedback</Button>
+            <!-- <Button data-toggle="modal" data-target="#Modal_add" class="btn btn-warning">Submit Feedback</Button> -->
           </div>
         
           <!-- Feedback Response Row --> 
@@ -39,7 +39,6 @@
                     </button>
                         </div>
                         <div class="modal-body">
-                            
                             <div class="row">
                                 <div class="col-md-6">
                                     <select class="form-control" id="addInputSubjectName">
@@ -48,7 +47,7 @@
                                         {{ subject.subname}}
                                         </option>
                                     </select>
-                                </div>
+                                </div> <br> <br>
                                 <div class="col-md-6">
                                     <select class="form-control" id="addInputStaffName">
                                         <option>Select Lacturer Name</option>
@@ -59,11 +58,36 @@
                                 </div>
                             </div>   
 
-                            <div class="col-md-6"><input id="addInputQus1" class="form-control" placeholder="Question 1"></div>
-                            <div class="col-md-6"><input id="addInputQus2" class="form-control" placeholder="Question 2"></div>
-                            <div class="col-md-6"><input id="addInputQus3" class="form-control" placeholder="Question 3"></div>
-                            <div class="col-md-6"><input id="addInputQus4" class="form-control" placeholder="Question 4"></div>
-                                    
+                            <br>
+
+                            <h5 class="text-warning">The content of the day was useful and interesting</h5>
+                            <div class="form-check" *ngFor="let obj of ques1Skill">  
+                              <input class="form-check-input" type="radio" name="exampleRadios1" id="addInputAsw1" value="{{obj.value}}" (change)="ques1SkillChange($event)" checked> {{obj.key}}
+                            </div>
+                            <br>
+
+                            <h5 class="text-warning">The lecture was structured and well organised</h5>
+                            <div class="form-check" *ngFor="let obj of ques1Skill">  
+                              <input class="form-check-input" type="radio" name="exampleRadios2" id="addInputAsw2" value="{{obj.value}}" (change)="ques1SkillChange($event)" checked> {{obj.key}}
+                            </div>
+                            <br>
+
+                            <h5 class="text-warning">Learning material was accessible</h5>
+                            <div class="form-check" *ngFor="let obj of ques1Skill">  
+                              <input class="form-check-input" type="radio" name="exampleRadios3" id="addInputAsw3" value="{{obj.value}}" (change)="ques1SkillChange($event)" checked> {{obj.key}}
+                            </div>
+                            <br>
+
+                            <h5 class="text-warning">The audio and visual connection was good</h5>
+                            <div class="form-check" *ngFor="let obj of ques1Skill">  
+                              <input class="form-check-input" type="radio" name="exampleRadios4" id="addInputAsw4" value="{{obj.value}}" (change)="ques1SkillChange($event)" checked> {{obj.key}}
+                            </div>
+                            <br>
+
+                            <h5 class="text-warning">Comments / Questions / Suggestions</h5>  
+                            <div class="form-group">
+                              <textarea class="form-control" id="addInputAny" rows="3" placeholder="Write Somthing..."></textarea>
+                            </div>        
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -82,8 +106,13 @@
                 </div>
                 <div class="card-body">
                     This feedback system is developed for students to valited the learnig envirement of students. Here we used Token Based Feedback System so the page is highly secure Compare with other systems and we restricted your details for this feedback so you can submit anythink about the particuler staff or lacturer and we will send you a feedback request to every months so please support us to valited the learning envirement.
-                </div>
+                    <br><br>
+                    
+                      <Button data-toggle="modal" data-target="#Modal_add" class="btn btn-warning center-block">Submit Feedback</Button>
+                    
+                  </div>
               </div>
+              
 
 
         </div>

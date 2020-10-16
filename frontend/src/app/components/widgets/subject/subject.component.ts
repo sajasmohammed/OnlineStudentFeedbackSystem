@@ -26,7 +26,8 @@ export class SubjectComponent implements OnInit {
 
   id:any="";
   subjects:any;
-  searchText
+  searchText;
+  p:number=1;
 
   ngOnInit(): void {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);

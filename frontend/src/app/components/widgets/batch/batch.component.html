@@ -54,7 +54,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let batch of batches | filter:searchText">
+                                <tr *ngFor="let batch of batches | filter:searchText | paginate:{itemsPerPage:5, currentPage:p}">
                                     <td>{{batch.id}}</td>
                                     <td>{{batch.batch_no}}</td>
                                     <td>{{batch.batch_name}}</td>
@@ -65,6 +65,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <pagination-controls (pageChange)="p=$event"></pagination-controls>
                 </div>
             </div>
             <!-- Modal-Add -->

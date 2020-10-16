@@ -17,6 +17,7 @@ class CreateStudentsTable extends Migration
             $table->increments('id');
             $table->string('student_id');
             $table->string('student_batchno');
+            $table->string('student_course');
             $table->string('student_email');
             $table->timestamps();
         });

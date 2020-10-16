@@ -1,3 +1,4 @@
+import { HistoryComponent } from './components/widgets/history/history.component';
 import { MainContainerComponent } from './components/layouts/main-container/main-container.component';
 import { FeedbackresultComponent } from './components/widgets/feedbackresult/feedbackresult.component';
 import { ResponseFeedbackformComponent } from './components/widgets/sendfeedback/response-feedbackform/response-feedbackform.component';
@@ -40,6 +41,7 @@ const appRoute: Routes=[
   { path: 'feedback_reponse', component: ResponseFeedbackformComponent, canActivate: [AfterLoginService]},
   { path: 'feedback_result', component: FeedbackresultComponent, canActivate: [AfterLoginService]},
   { path: 'main-container', component: MainContainerComponent, canActivate: [AfterLoginService]},
+  { path: 'history', component: HistoryComponent, canActivate: [AfterLoginService]},
   { path: '**', component: PageNotFoundComponent },
 
 ];

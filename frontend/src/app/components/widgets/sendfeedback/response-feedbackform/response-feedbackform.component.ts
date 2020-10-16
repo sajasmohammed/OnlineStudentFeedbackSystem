@@ -28,8 +28,30 @@ export class ResponseFeedbackformComponent implements OnInit {
   id:any="";
   staffs:any;
   subjects:any;
-  searchText
+  searchText;
 
+  selectSkill1:any=[];
+
+  ques1Skill=[
+    {
+      "key": "Very Good",
+      "value": "vgood"
+    },
+    {
+      "key": "Good",
+      "value": "good"
+    },
+    {
+      "key": "Fair",
+      "value": "fair"
+    },
+    {
+      "key": "Poor",
+      "value": "poor"
+    }
+  ];
+
+ 
   ngOnInit(): void {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);  
   }
@@ -48,13 +70,13 @@ export class ResponseFeedbackformComponent implements OnInit {
   add(){
     var form=new FormData();
 
-    
     form.append("lacturer_name", $("#addInputStaffName").val());
     form.append("subject", $("#addInputSubjectName").val());
-    form.append("ques1", $("#addInputQus1").val());
-    form.append("ques2", $("#addInputQus2").val());
-    form.append("ques3", $("#addInputQus3").val());
-    form.append("ques4", $("#addInputQus4").val());
+    form.append("ques1", $("#addInputAsw1").val());
+    form.append("ques2", $("#addInputAsw2").val());
+    form.append("ques3", $("#addInputAsw3").val());
+    form.append("ques4", $("#addInputAsw4").val());
+    form.append("other", $("#addInputAny").val());
 
     this.jarwis.addFeedback(form).subscribe(res=>{
       var r:any=res;
@@ -69,4 +91,39 @@ export class ResponseFeedbackformComponent implements OnInit {
         });
     })
   }
+
+  ques1SkillChange(event){
+    let index=this.selectSkill1.indexOf(event.target.value);
+    if(index == -1){
+      this.selectSkill1.push(event.target.value);
+    }else{
+      this.selectSkill1.splice(index, 1);
+    }
+  }
+
+  ques2SkillChange(event){
+    let index=this.selectSkill1.indexOf(event.target.value);
+    if(index == -1){
+      this.selectSkill1.push(event.target.value);
+    }else{
+      this.selectSkill1.splice(index, 1);
+    }
+  }
+  ques3SkillChange(event){
+    let index=this.selectSkill1.indexOf(event.target.value);
+    if(index == -1){
+      this.selectSkill1.push(event.target.value);
+    }else{
+      this.selectSkill1.splice(index, 1);
+    }
+  }  
+  ques4SkillChange(event){
+    let index=this.selectSkill1.indexOf(event.target.value);
+    if(index == -1){
+      this.selectSkill1.push(event.target.value);
+    }else{
+      this.selectSkill1.splice(index, 1);
+    }
+  }
+
 }

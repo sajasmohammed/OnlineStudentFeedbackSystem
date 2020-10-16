@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { TokenService } from './../../../Services/token.service';
 import { JarwisService } from './../../../Services/jarwis.service';
 import { Component, OnInit } from '@angular/core';
@@ -22,6 +23,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private Jarwis: JarwisService,
     private Token: TokenService,
+    private notify: ToastrService
+   
   ) { }
 
   onSubmit() {
@@ -33,11 +36,11 @@ export class SignupComponent implements OnInit {
   }
   handleResponse(data) {
     this.Token.handle(data.access_token);
-    this.response = 'User Created Successfully...';
-  }
+    this.notify.success("User Created Successfully");
+ }
 
   handleError(error) {
-    this.error = error.error.message;
+    this.notify.error(error.error.message);
   }
 
    ngOnInit() {

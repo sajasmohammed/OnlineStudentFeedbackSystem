@@ -27,7 +27,8 @@ export class StaffComponent implements OnInit {
   id:any="";
   staffs:any;
   subjects:any;
-  searchText
+  searchText;
+  p:number=1;
 
   ngOnInit(): void {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);

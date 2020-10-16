@@ -20,6 +20,8 @@ class CourseController extends Controller
     public function index()
     {
         return Course::get();
+        $wordlist = Course::where('id', '<=', $correctedComparisons)->get();
+        $wordCount = $wordlist->count();
     }
 
     /**

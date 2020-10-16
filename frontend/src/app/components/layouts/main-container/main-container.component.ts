@@ -12,17 +12,23 @@ export class MainContainerComponent implements OnInit {
 
   
   public loggedIn: boolean;
+  sideBarOpen = true;
+
   
   constructor(
     private Auth: AuthService,
-    private Token: TokenService,
-    private router: Router,
   ) { }
-
+  
+  userType = '';
+  
   ngOnInit(): void {
-    this.Auth.authStatus.subscribe(value => this.loggedIn = value);
+    this.Auth.authStatus.subscribe(userType => this.loggedIn = userType);
+    this.userType = sessionStorage.getItem('loggedUserType');
+   
   }
 
-  
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }  
 
 }

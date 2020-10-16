@@ -23,11 +23,16 @@ export class StudentComponent implements OnInit {
   
   ) { 
     this.getStudents();
+    this.getBatches();
+    this.getCourses();
   }
 
    id:any="";
    students:any;
-   searchText
+   batches:any;
+   courses:any;
+   searchText;
+   p:number=1;
 
   ngOnInit(): void {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);
@@ -38,6 +43,18 @@ export class StudentComponent implements OnInit {
       this.students = res;
   });
   }
+
+  getBatches() {
+    return this.http.get('http://localhost:8000/api/showBatches').subscribe(res => {
+      this.batches = res;
+  });
+  }
+
+  getCourses() {
+    return this.http.get('http://localhost:8000/api/showCourses').subscribe(res => {
+      this.courses = res;
+  });
+  }
  
 
   add(){
@@ -45,6 +62,7 @@ export class StudentComponent implements OnInit {
 
     form.append("student_id", $("#addInputStudentID").val());
     form.append("student_batchno", $("#addInputStudentBatchNo").val());
+    form.append("student_course", $("#addInputStudentCourse").val());
     form.append("student_email", $("#addInputStudentEmail").val());
     this.jarwis.addStudent(form).subscribe(res=>{
       var r:any=res;
@@ -77,6 +95,7 @@ export class StudentComponent implements OnInit {
     form.append("id", this.id);
     form.append("student_id", $("#updateInputStudentID").val());
     form.append("student_batchno", $("#updateInputStudentBatchNo").val());
+    form.append("student_course", $("#updateInputStudentCourse").val());
     form.append("student_email", $("#updateInputStudentEmail").val());
 
     this.jarwis.updateStudent(form).subscribe(res=>{
@@ -102,6 +121,7 @@ export class StudentComponent implements OnInit {
         this.id=el.id;
         $("#updateInputStudentID").prop("value", el.student_id);
         $("#updateInputStudentBatchNo").prop("value", el.student_batchno);
+        $("#updateInputStudentCourse").prop("value", el.student_course);
         $("#updateInputStudentEmail").prop("value", el.student_email);
       } 
     });

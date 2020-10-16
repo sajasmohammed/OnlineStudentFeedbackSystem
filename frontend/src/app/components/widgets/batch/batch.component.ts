@@ -27,7 +27,8 @@ export class BatchComponent implements OnInit {
   id:any="";
   batches:any;
   courses:any;
-  searchText
+  searchText;
+  p:number=1;
 
   ngOnInit(): void {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);

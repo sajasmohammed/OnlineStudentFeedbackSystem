@@ -84,13 +84,13 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let student of students | filter:searchText">
+                                                    <tr *ngFor="let student of students | filter:searchText | paginate:{itemsPerPage:3, currentPage:p}">
                                                         <td>{{student.student_batchno}}</td>
                                                         <td>{{student.student_email}}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
-
+                                            <pagination-controls (pageChange)="p=$event"></pagination-controls>
                                     </div>
                                 </div>
 
