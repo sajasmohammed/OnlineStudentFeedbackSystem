@@ -1,9 +1,4 @@
 <nav class="navbar navbar-light bg-light justify-content-between">
     <a class="navbar-brand" routerLink="" *ngIf="!loggedIn">Home</a>
-    <a class="navbar-brand" *ngIf="loggedIn">Welcome to Dashboard</a>
-    <div>
-        <a class="dropdown-item" href="#" (click)="logout($event)" *ngIf="loggedIn">
-            <img src="assets/logout.png" alt="..." class="rounded-circle">
-        </a>
-    </div>
+    
 </nav>

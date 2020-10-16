@@ -16,6 +16,9 @@ Route::group([
     //FeedbackForm Api
     Route::post('requestFeedbackFormLink', 'FeedbackRequestController@sendEmail');
     Route::post('responseFeedbackFormLink', 'ChangePasswordController@process');
+    Route::any('addFeedbacks', 'FeedbackController@store');
+    Route::any('showFeedbacks', 'FeedbackController@index');
+    
     //Subject Api
     Route::any('showSubjects', 'SubjectController@index');
     Route::any('addSubjects', 'SubjectController@store');

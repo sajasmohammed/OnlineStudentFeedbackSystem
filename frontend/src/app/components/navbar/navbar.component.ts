@@ -23,11 +23,5 @@ export class NavbarComponent implements OnInit {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);
   }
 
-  logout(event: MouseEvent){
-    event.preventDefault();
-    this.Token.remove();
-    this.Auth.changeAuthStatus(false);
-    this.router.navigateByUrl('');
-  }
-
+ 
 }

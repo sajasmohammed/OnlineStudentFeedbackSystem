@@ -1,9 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/Services/auth.service';
-import { TokenService } from 'src/app/Services/token.service';
-import { Router } from '@angular/router';
 
 declare var $: any;
 
@@ -18,12 +14,7 @@ export class HodProfileComponent implements OnInit {
 
   constructor(
     private Auth: AuthService,
-    private Token: TokenService,
-    private router: Router,
-    private toastr: ToastrService,
-  ) {
-    
-   }
+  ) {}
 
   userDisplayName = '';
   userType = '';
@@ -32,16 +23,4 @@ export class HodProfileComponent implements OnInit {
     this.userDisplayName = sessionStorage.getItem('loggedUser');
     this.userType = sessionStorage.getItem('loggedUserType');
   }
- 
-  logout(event: MouseEvent){
-    event.preventDefault();
-    this.Token.remove();
-    this.Auth.changeAuthStatus(false);
-    this.router.navigateByUrl('/login');
-  }
-
-  handlerResponse(data){
-    this.toastr.success(data.message);
-  }
-  
 }

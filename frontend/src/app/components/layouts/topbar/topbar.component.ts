@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/Services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopbarComponent implements OnInit {
 
-  constructor() { }
+  public loggedIn: boolean;
 
+  constructor(
+    private Auth: AuthService,
+  ) {
+    
+   }
+
+  userDisplayName = '';
+  userType = '';
   ngOnInit(): void {
-  }
-
+    this.Auth.authStatus.subscribe(value => this.loggedIn = value);
+    this.userDisplayName = sessionStorage.getItem('loggedUser');
+    this.userType = sessionStorage.getItem('loggedUserType');
+  }  
 }

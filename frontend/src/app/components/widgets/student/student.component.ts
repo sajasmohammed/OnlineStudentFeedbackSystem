@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/Services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { JarwisService } from './../../../Services/jarwis.service';
@@ -11,10 +12,15 @@ declare var $:any;
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
+ 
+  public loggedIn: boolean;
+  
   constructor(
     private jarwis: JarwisService,
     private toastr: ToastrService,
-    private http: HttpClient
+    private http: HttpClient,
+    private Auth: AuthService,
+  
   ) { 
     this.getStudents();
   }
@@ -24,7 +30,7 @@ export class StudentComponent implements OnInit {
    searchText
 
   ngOnInit(): void {
-    
+    this.Auth.authStatus.subscribe(value => this.loggedIn = value);
   }
 
    getStudents() {

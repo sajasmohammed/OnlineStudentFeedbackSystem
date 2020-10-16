@@ -1,3 +1,4 @@
+import { AuthService } from './../../../../Services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { JarwisService } from './../../../../Services/jarwis.service';
@@ -12,16 +13,17 @@ declare var $:any;
 })
 export class RequestFeedbackformComponent implements OnInit {
  
+  public loggedIn: boolean;
+  
   public form = {
     email: null
   };
   
- 
   constructor(
     private jarwis: JarwisService,
     private toastr: ToastrService,
-    private http: HttpClient
-    
+    private http: HttpClient,
+    private Auth: AuthService    
   ) { 
     this.getStudents();
   }
@@ -32,7 +34,7 @@ export class RequestFeedbackformComponent implements OnInit {
    searchText
 
   ngOnInit(): void {
-    
+    this.Auth.authStatus.subscribe(value => this.loggedIn = value);  
   }
 
    getStudents() {

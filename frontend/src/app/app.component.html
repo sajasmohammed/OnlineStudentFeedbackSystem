@@ -1,9 +1,4 @@
-<app-navbar></app-navbar>
-<div class="wrapper">
-    <app-topbar *ngIf="loggedIn"></app-topbar>
-    <app-sidebar *ngIf="loggedIn"></app-sidebar>
-    <div class="content-wrapper">
-        <router-outlet></router-outlet>
-    </div>
-    <app-footer *ngIf="loggedIn"></app-footer>
-</div>
+
+<!-- <app-main-container *ngIf="loggedIn"></app-main-container> -->
+
+<router-outlet></router-outlet>

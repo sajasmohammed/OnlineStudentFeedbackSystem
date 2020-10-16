@@ -28,7 +28,10 @@ import { StaffComponent } from './components/widgets/staff/staff.component';
 import { RequestFeedbackformComponent } from './components/widgets/sendfeedback/request-feedbackform/request-feedbackform.component';
 import { ResponseFeedbackformComponent } from './components/widgets/sendfeedback/response-feedbackform/response-feedbackform.component';
 import { StudentComponent } from './components/widgets/student/student.component';
-import { RequestEmailComponent } from './components/widgets/sendemail/request-email/request-email.component';
+import { ContentsComponent } from './components/layouts/contents/contents.component';
+import { MainContainerComponent } from './components/layouts/main-container/main-container.component';
+import { LogoutComponent } from './components/layouts/logout/logout.component';
+import { FeedbackresultComponent } from './components/widgets/feedbackresult/feedbackresult.component';
 
 
 @NgModule({
@@ -53,7 +56,10 @@ import { RequestEmailComponent } from './components/widgets/sendemail/request-em
     RequestFeedbackformComponent,
     ResponseFeedbackformComponent,
     StudentComponent,
-    RequestEmailComponent,
+    ContentsComponent,
+    MainContainerComponent,
+    LogoutComponent,
+    FeedbackresultComponent,
     
     
   ],

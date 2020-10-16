@@ -95,5 +95,8 @@ export class JarwisService {
   responseFeedbackFormLink(data) {
     return this.http.post(`${this.baseUrl}/responseFeedbackFormLink`, data);
   }
+  addFeedback(data) {
+    return this.http.post(`${this.baseUrl}/addFeedbacks`, data);
+  }
   
 }
