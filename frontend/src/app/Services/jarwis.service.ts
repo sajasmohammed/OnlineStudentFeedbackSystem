@@ -11,11 +11,6 @@ export class JarwisService {
    
   private baseUrl="http://localhost:8000/api";
 
-  // httpOptions = {
-  //   headers: new HttpHeaders({
-  //     'Content-Type': 'application/json'
-  //   })
-  // }
   constructor(private http: HttpClient) { 
   }
 
@@ -97,6 +92,11 @@ export class JarwisService {
   }
   addFeedback(data) {
     return this.http.post(`${this.baseUrl}/addFeedbacks`, data);
+  }
+
+  //History API  
+  addHistories(data) {
+    return this.http.post(`${this.baseUrl}/addHistory`, data);
   }
   
 }

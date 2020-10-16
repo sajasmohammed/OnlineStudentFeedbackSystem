@@ -22,7 +22,7 @@
           
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4"  *ngIf="loggedIn">
-            <h1 class="h3 mb-0 text-gray-800">Feedback Results</h1>
+            <h1 class="h3 mb-0 text-gray-800">History</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-outline-dark shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
         
@@ -45,23 +45,18 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Lacturer</th>
-                                    <th>Subject</th>
-                                    <th>Answser 1</th>
-                                    <th>Answser 2</th>
-                                    <th>Answser 3</th>
-                                    <th>Answser 4</th>
+                                    <th>Username</th>
+                                    <th>Activity</th>
+                                    <th>Date</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let feed of feedbacks | filter:searchText | paginate:{itemsPerPage:5, currentPage:p}">
-                                    <td>{{feed.id}}</td>
-                                    <td>{{feed.lacturer_name}}</td>
-                                    <td>{{feed.subject}}</td>
-                                    <td>{{feed.ques1}}</td>
-                                    <td>{{feed.ques2}}</td>
-                                    <td>{{feed.ques3}}</td>
-                                    <td>{{feed.ques4}}</td>    
+                                
+                                <tr *ngFor="let history of histories | filter:searchText | paginate:{itemsPerPage:5, currentPage:p}">
+                                    <td>{{history.id}}</td>
+                                    <td>{{history.username}}</td>
+                                    <td>{{history.activity}}</td>
+                                    <td>{{history.created_at}}</td>
                                 </tr>
                             </tbody>
                         </table>

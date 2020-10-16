@@ -53,7 +53,7 @@
                               </tr>
                           </thead>
                           <tbody>
-                              <tr *ngFor="let course of courses | filter:searchText">
+                              <tr *ngFor="let course of courses | filter:searchText | paginate:{itemsPerPage:5, currentPage:p}">
                                   <td>{{course.id}}</td>
                                   <td>{{course.course_name}}</td>
                                   <td>
@@ -63,6 +63,8 @@
                               </tr>
                           </tbody>
                       </table>
+
+                      <pagination-controls (pageChange)="p=$event"></pagination-controls>
               </div>
           </div>
           

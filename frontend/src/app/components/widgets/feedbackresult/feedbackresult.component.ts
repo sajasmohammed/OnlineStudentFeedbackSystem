@@ -24,7 +24,8 @@ export class FeedbackresultComponent implements OnInit {
 
   id:any="";
   feedbacks:any;
-  searchText
+  searchText;
+  p:number=1;
 
   ngOnInit(): void {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);

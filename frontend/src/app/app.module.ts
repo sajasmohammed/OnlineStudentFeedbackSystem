@@ -1,4 +1,3 @@
-import { SidebarComponent } from './components/layouts/sidebar/sidebar.component';
 import { TopbarComponent } from './components/layouts/topbar/topbar.component';
 import { FooterComponent } from './components/layouts/footer/footer.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -32,6 +31,8 @@ import { ContentsComponent } from './components/layouts/contents/contents.compon
 import { MainContainerComponent } from './components/layouts/main-container/main-container.component';
 import { LogoutComponent } from './components/layouts/logout/logout.component';
 import { FeedbackresultComponent } from './components/widgets/feedbackresult/feedbackresult.component';
+import { HistoryComponent } from './components/widgets/history/history.component';
+import { SidebarComponent } from './components/layouts/sidebar/sidebar.component';
 
 
 @NgModule({
@@ -50,7 +51,6 @@ import { FeedbackresultComponent } from './components/widgets/feedbackresult/fee
     TopbarComponent,
     CourseComponent,
     SubjectComponent,
-    SidebarComponent,
     BatchComponent,
     StaffComponent,
     RequestFeedbackformComponent,
@@ -60,6 +60,8 @@ import { FeedbackresultComponent } from './components/widgets/feedbackresult/fee
     MainContainerComponent,
     LogoutComponent,
     FeedbackresultComponent,
+    HistoryComponent,
+    SidebarComponent,
     
     
   ],
@@ -71,7 +73,8 @@ import { FeedbackresultComponent } from './components/widgets/feedbackresult/fee
     BrowserAnimationsModule,
     DataTablesModule,
     Ng2SearchPipeModule,
-    NgxPaginationModule,   
+    NgxPaginationModule,  
+    NgxPaginationModule,
     ToastrModule.forRoot()
   ],
   providers: [

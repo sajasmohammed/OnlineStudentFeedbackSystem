@@ -28,7 +28,6 @@
           
                
                 <div class="container-xl">
-                    <div class="table-responsive">
                         <div class="table-wrapper">
                             <div class="table-title">
                                 <div class="row">
@@ -51,15 +50,17 @@
                                         <th>#</th>
                                         <th>StudentID</th>
                                         <th>Batch No</th>
+                                        <th>Course</th>
                                         <th>Email</th>
                                         <th>Modify</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let student of students | filter:searchText">
+                                    <tr *ngFor="let student of students | filter:searchText | paginate: {itemsPerPage:5, currentPage:p}">
                                         <td>{{student.id}}</td>
                                         <td>{{student.student_id}}</td>
                                         <td>{{student.student_batchno}}</td>
+                                        <td>{{student.student_course}}</td>
                                         <td>{{student.student_email}}</td>
                                         <td>
                                             <a href="#" (click)="showUpdateModel(student.id)" class="text-warning" data-toggle="tooltip" data-toggle="modal" data-target="#Modal_update"><i class="fas fa-edit fa-sm text-wrap"></i></a> &nbsp;&nbsp;
@@ -68,16 +69,8 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                </ul>
-                              </nav>
-                        </div>
+                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                        
                     </div>
                 </div>
 
@@ -96,7 +89,23 @@
                                   
                                 <div class="row">
                                     <div class="col-md-6"><input id="addInputStudentID" class="form-control" placeholder="StudentID"></div>
-                                    <div class="col-md-6"><input id="addInputStudentBatchNo" class="form-control" placeholder="Batch No"></div> <br><br>   
+                                    <br><br>
+                                    <div class="col-md-6">
+                                        <select class="form-control" id="addInputStudentBatchNo">
+                                            <option>Select Batch</option>
+                                            <option *ngFor="let batch of batches" [ngValue]="batch.batch_no">
+                                            {{ batch.batch_no}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <select class="form-control" id="addInputStudentCourse">
+                                            <option>Select Course</option>
+                                            <option *ngFor="let course of courses" [ngValue]="course.course_name">
+                                            {{ course.course_name}}
+                                            </option>
+                                        </select>
+                                    </div>
                                     <div class="col-md-6"><input id="addInputStudentEmail" class="form-control" placeholder="Email"></div>
                                 </div>
                             </div>
@@ -120,7 +129,24 @@
                             <div class="modal-body">  
                                 <div class="row">
                                     <div class="col-md-6"><input id="updateInputStudentID" class="form-control" placeholder="StudentID"></div>
-                                    <div class="col-md-6"><input id="updateInputStudentBatchNo" class="form-control" placeholder="BatchNo"></div> <br><br>
+                                    
+                                    <br><br>
+                                    <div class="col-md-6">
+                                        <select class="form-control" id="updateInputStudentBatchNo">
+                                            <option>Select Batch</option>
+                                            <option *ngFor="let batch of batches" [ngValue]="batch.batch_no">
+                                            {{ batch.batch_no}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <select class="form-control" id="updateInputStudentCourse">
+                                            <option>Select Course</option>
+                                            <option *ngFor="let course of courses" [ngValue]="course.course_name">
+                                            {{ course.course_name}}
+                                            </option>
+                                        </select>
+                                    </div>
                                     <div class="col-md-6"><input id="updateInputStudentEmail" class="form-control" placeholder="Email"></div>
                                     
                                 </div>

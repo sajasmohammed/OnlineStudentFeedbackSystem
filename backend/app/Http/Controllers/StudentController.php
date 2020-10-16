@@ -42,20 +42,26 @@ class StudentController extends Controller
         $validator = Validator::make($request->all(),[
             'student_id'=>'required',
             'student_batchno'=>'required',
+            'student_course'=>'required',
             'student_email'=>'required'
         ]);
    
         if($validator->fails()){
             return response()->json(['error' => $validator->errors()->all()], 409);   
         }else{  
+            $check_studentid= Student::where('student_id', $request->student_id)->get()->toArray();  
             $check_studentemail= Student::where('student_email', $request->student_email)->get()->toArray();  
-            if($check_studentemail){
-                $arr=array('status'=>'true', 'errormessage'=>'Student Email Already Exists...');  
+            if($check_studentid){
+                $arr=array('status'=>'true', 'errormessage'=>'Batch No Already Exists...');  
+            }
+            else if($check_studentemail){
+                $arr=array('status'=>'true', 'errormessage'=>'Email Already Exists...');  
             }
             else{
                 $student =new Student();
                 $student->student_id=$request->student_id;
                 $student->student_batchno=$request->student_batchno;
+                $student->student_course=$request->student_course;
                 $student->student_email=$request->student_email;
                 $student->save();
                 $arr=array('status'=>'true', 'message'=>'Added Successfully...');    
@@ -105,9 +111,13 @@ class StudentController extends Controller
         if($validator->fails()){
             return response()->json(['error' => $validator->errors()->all()], 409);   
         }else{  
+            $check_studentid= Student::where('student_id', $request->student_id)->get()->toArray();  
             $check_studentemail= Student::where('student_email', $request->student_email)->get()->toArray();  
-            if($check_studentemail){
-                $arr=array('status'=>'true', 'errormessage'=>'Student Email Already Exists...');  
+            if($check_studentid){
+                $arr=array('status'=>'true', 'errormessage'=>'Batch No Already Exists...');  
+            }
+            else if($check_studentemail){
+                $arr=array('status'=>'true', 'errormessage'=>'Email Already Exists...');  
             }
             else{    
                 $student=Student::find($request->id);

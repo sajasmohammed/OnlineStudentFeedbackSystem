@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/Services/auth.service';
+import { AuthService } from './../../../Services/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { Route } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,7 +11,8 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
 
   public loggedIn: boolean;
-
+  
+  
   constructor(
     private Auth: AuthService,
     private router: Router,
@@ -24,6 +26,6 @@ export class SidebarComponent implements OnInit {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);
     this.userDisplayName = sessionStorage.getItem('loggedUser');
     this.userType = sessionStorage.getItem('loggedUserType');
+   
   }  
-
 }

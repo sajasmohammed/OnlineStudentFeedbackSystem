@@ -54,6 +54,7 @@ class FeedbackController extends Controller
             'ques2'=>'required',
             'ques3'=>'required',
             'ques4'=>'required',
+            'other'=>'required',
             
         ]);
    
@@ -67,6 +68,7 @@ class FeedbackController extends Controller
                 $feedback->ques2=$request->ques2;
                 $feedback->ques3=$request->ques3;
                 $feedback->ques4=$request->ques4;
+                $feedback->other=$request->other;
                 $feedback->save();
                 $this->getFeedbackTableRow($request)->delete();
                 $arr=array('status'=>'true', 'message'=>'Added Successfully...');    

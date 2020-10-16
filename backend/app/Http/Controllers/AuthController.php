@@ -33,6 +33,7 @@ class AuthController extends Controller
         }
 
         return $this->respondWithToken($token);
+
     }
 
     public function signup(SignUpRequest $request){
