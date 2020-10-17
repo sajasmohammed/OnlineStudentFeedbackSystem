@@ -21,7 +21,7 @@
 
           
           <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4"  *ngIf="loggedIn">
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Feedbacks</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-outline-dark shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
@@ -70,7 +70,7 @@
                                                     <div class="col-sm-6"></div>
                                                     <div class="col-sm-6">
                                                         <div class="search-box">
-                                                            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" Start searching for a s by student_batchno or student_email placeholder="Search">
+                                                            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" Start searching for as by student_batchno placeholder="Search">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -115,5 +115,3 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
-<app-logout></app-logout>

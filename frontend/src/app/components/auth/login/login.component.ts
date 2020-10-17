@@ -53,7 +53,6 @@ export class LoginComponent implements OnInit {
       this.Token.handle(data.access_token);
       this.Auth.changeAuthStatus(true);
       this.router.navigateByUrl('/hod-profile');
-      this.router.navigateByUrl('subject');
       this.successMessage();
     }
     else if(data.user_type == 'student'){

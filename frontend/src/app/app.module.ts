@@ -29,7 +29,6 @@ import { ResponseFeedbackformComponent } from './components/widgets/sendfeedback
 import { StudentComponent } from './components/widgets/student/student.component';
 import { ContentsComponent } from './components/layouts/contents/contents.component';
 import { MainContainerComponent } from './components/layouts/main-container/main-container.component';
-import { LogoutComponent } from './components/layouts/logout/logout.component';
 import { FeedbackresultComponent } from './components/widgets/feedbackresult/feedbackresult.component';
 import { HistoryComponent } from './components/widgets/history/history.component';
 import { SidebarComponent } from './components/layouts/sidebar/sidebar.component';
@@ -58,7 +57,6 @@ import { SidebarComponent } from './components/layouts/sidebar/sidebar.component
     StudentComponent,
     ContentsComponent,
     MainContainerComponent,
-    LogoutComponent,
     FeedbackresultComponent,
     HistoryComponent,
     SidebarComponent,
