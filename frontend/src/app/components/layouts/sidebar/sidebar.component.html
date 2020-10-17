@@ -36,12 +36,12 @@
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Custom Components:</h6>
-          <a class="collapse-item" *ngIf="userType == 'admin' || 'hod'" routerLink="/student">Students</a>
+          <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/student">Students</a>
           <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/subject"> Subjects</a>
           <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/staff">Staffs</a>
           <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/batch">Batches</a>
           <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/course">Courses</a>
-          <a class="collapse-item" routerLink="/feedback_result">Feedback Result</a>
+          <a class="collapse-item" *ngIf="userType == 'admin' || 'hod' || 'staff'" routerLink="/feedback_result">Feedback Result</a>
           <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/feedback_request">Feedback Request</a>
           <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/history">History</a>
         </div>

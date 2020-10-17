@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { TokenService } from 'src/app/Services/token.service';
 import { AuthService } from 'src/app/Services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -12,6 +14,8 @@ export class TopbarComponent implements OnInit {
 
   constructor(
     private Auth: AuthService,
+    private Token: TokenService,
+    private router: Router
   ) {
     
    }
@@ -23,4 +27,11 @@ export class TopbarComponent implements OnInit {
     this.userDisplayName = sessionStorage.getItem('loggedUser');
     this.userType = sessionStorage.getItem('loggedUserType');
   }  
+  logout(event: MouseEvent){
+    event.preventDefault();
+    this.Token.remove();
+    this.Auth.changeAuthStatus(false);
+    this.router.navigateByUrl('');
+    
+  }
 }
