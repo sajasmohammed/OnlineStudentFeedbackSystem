@@ -56,7 +56,7 @@ export class StudentComponent implements OnInit {
   });
   }
  
-
+  
   add(){
     var form=new FormData();
 

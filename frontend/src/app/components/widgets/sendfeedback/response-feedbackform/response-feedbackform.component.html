@@ -62,11 +62,11 @@
 
                             <h5 class="text-warning">The content of the day was useful and interesting</h5>
                             <div class="form-check" *ngFor="let obj of ques1Skill">  
-                              <input class="form-check-input" type="radio" name="exampleRadios1" id="addInputAsw1" value="{{obj.value}}" (change)="ques1SkillChange($event)" checked> {{obj.key}}
+                              <input  type="checkbox"   value="{{obj.value}}" (change)="ques1SkillChange($event)"> {{obj.key}}
                             </div>
                             <br>
 
-                            <h5 class="text-warning">The lecture was structured and well organised</h5>
+                            <!-- <h5 class="text-warning">The lecture was structured and well organised</h5>
                             <div class="form-check" *ngFor="let obj of ques1Skill">  
                               <input class="form-check-input" type="radio" name="exampleRadios2" id="addInputAsw2" value="{{obj.value}}" (change)="ques1SkillChange($event)" checked> {{obj.key}}
                             </div>
@@ -82,7 +82,7 @@
                             <div class="form-check" *ngFor="let obj of ques1Skill">  
                               <input class="form-check-input" type="radio" name="exampleRadios4" id="addInputAsw4" value="{{obj.value}}" (change)="ques1SkillChange($event)" checked> {{obj.key}}
                             </div>
-                            <br>
+                            <br> -->
 
                             <h5 class="text-warning">Comments / Questions / Suggestions</h5>  
                             <div class="form-group">

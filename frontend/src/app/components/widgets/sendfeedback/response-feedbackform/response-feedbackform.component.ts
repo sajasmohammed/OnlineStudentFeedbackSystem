@@ -1,3 +1,4 @@
+import { Feedback } from './feedback.model';
 import { AuthService } from './../../../../Services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
@@ -29,6 +30,8 @@ export class ResponseFeedbackformComponent implements OnInit {
   staffs:any;
   subjects:any;
   searchText;
+
+  feedback=new Feedback();
 
   selectSkill1:any=[];
 
@@ -78,6 +81,7 @@ export class ResponseFeedbackformComponent implements OnInit {
     form.append("ques4", $("#addInputAsw4").val());
     form.append("other", $("#addInputAny").val());
 
+     this.feedback.ques1=this.selectSkill1.toString();
     this.jarwis.addFeedback(form).subscribe(res=>{
       var r:any=res;
       if(r.message){

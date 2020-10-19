@@ -59,4 +59,5 @@ Route::group([
     Route::any('showHistory', 'HistoryController@index');
     Route::any('addHistory', 'HistoryController@store');
 
+  
 });
