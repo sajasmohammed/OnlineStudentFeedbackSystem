@@ -12,6 +12,8 @@ import { Component, OnInit } from '@angular/core';
 export class ContentsComponent implements OnInit {
 
   public loggedIn: boolean;
+  private sum=0;  
+  private value; 
 
   constructor(
     private http: HttpClient,
@@ -38,4 +40,5 @@ export class ContentsComponent implements OnInit {
     }
   }
 
+ 
 }

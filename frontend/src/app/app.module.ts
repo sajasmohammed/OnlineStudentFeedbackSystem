@@ -1,3 +1,4 @@
+import { ChartsModule } from 'ng2-charts';
 import { TopbarComponent } from './components/layouts/topbar/topbar.component';
 import { FooterComponent } from './components/layouts/footer/footer.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -32,7 +33,6 @@ import { MainContainerComponent } from './components/layouts/main-container/main
 import { FeedbackresultComponent } from './components/widgets/feedbackresult/feedbackresult.component';
 import { HistoryComponent } from './components/widgets/history/history.component';
 import { SidebarComponent } from './components/layouts/sidebar/sidebar.component';
-
 
 @NgModule({
   declarations: [
@@ -73,6 +73,7 @@ import { SidebarComponent } from './components/layouts/sidebar/sidebar.component
     Ng2SearchPipeModule,
     NgxPaginationModule,  
     NgxPaginationModule,
+    ChartsModule,
     ToastrModule.forRoot()
   ],
   providers: [

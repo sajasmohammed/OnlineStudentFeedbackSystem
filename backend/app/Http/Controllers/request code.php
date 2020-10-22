@@ -30,7 +30,6 @@ class FeedbackRequest extends FormRequest
             'ques2'=>'required',
             'ques3'=>'required',
             'ques4'=>'required',
-            'other'=>'required',
         ];
     }
 }

@@ -14,10 +14,10 @@ Route::group([
     Route::post('resetPassword', 'ChangePasswordController@process');
 
     //FeedbackForm Api
-    Route::post('requestFeedbackFormLink', 'FeedbackRequestController@sendEmail');
-    Route::post('responseFeedbackFormLink', 'ChangePasswordController@process');
-    Route::any('addFeedbacks', 'FeedbackController@store');
-    Route::any('showFeedbacks', 'FeedbackController@index');
+    Route::post('requestFeedbackFormLink', 'FeedbackRequest@sendEmail');
+    Route::post('responseFeedbackFormLink', 'FeedbackController@process');
+    // Route::any('addFeedbacks', 'FeedbackController@store');
+    // Route::any('showFeedbacks', 'FeedbackController@index');
     
     //Subject Api
     Route::any('showSubjects', 'SubjectController@index');

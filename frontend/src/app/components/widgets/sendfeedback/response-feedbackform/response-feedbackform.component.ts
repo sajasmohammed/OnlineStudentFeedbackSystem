@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { Feedback } from './feedback.model';
 import { AuthService } from './../../../../Services/auth.service';
 import { HttpClient } from '@angular/common/http';
@@ -16,7 +17,21 @@ export class ResponseFeedbackformComponent implements OnInit {
 
   public loggedIn: boolean;
   
+  public error=[];
+  public form = {
+    subject : null,
+    lacturer_name : null,
+    ques1:null,
+    ques2:null,
+    ques3:null,
+    ques4:null,
+    other:null,
+    resetToken :null
+  }
+
   constructor(
+    private route:ActivatedRoute,
+    private router:Router,
     private jarwis: JarwisService,
     private toastr: ToastrService,
     private http: HttpClient,
@@ -24,6 +39,9 @@ export class ResponseFeedbackformComponent implements OnInit {
   ) { 
     this.getStaffs();
     this.getSubject();
+    route.queryParams.subscribe(params => {
+      this.form.resetToken = params['token']
+    });
   }
 
   id:any="";
@@ -31,30 +49,7 @@ export class ResponseFeedbackformComponent implements OnInit {
   subjects:any;
   searchText;
 
-  feedback=new Feedback();
-
-  selectSkill1:any=[];
-
-  ques1Skill=[
-    {
-      "key": "Very Good",
-      "value": "vgood"
-    },
-    {
-      "key": "Good",
-      "value": "good"
-    },
-    {
-      "key": "Fair",
-      "value": "fair"
-    },
-    {
-      "key": "Poor",
-      "value": "poor"
-    }
-  ];
-
- 
+  
   ngOnInit(): void {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);  
   }
@@ -80,12 +75,12 @@ export class ResponseFeedbackformComponent implements OnInit {
     form.append("ques3", $("#addInputAsw3").val());
     form.append("ques4", $("#addInputAsw4").val());
     form.append("other", $("#addInputAny").val());
-
-     this.feedback.ques1=this.selectSkill1.toString();
+    
     this.jarwis.addFeedback(form).subscribe(res=>{
       var r:any=res;
       if(r.message){
-        this.toastr.success(r.message)
+        this.toastr.success(r.message)    
+        // event.target.disabled = true;
       }else{
         this.toastr.error(r.errormessage)
       }
@@ -94,40 +89,7 @@ export class ResponseFeedbackformComponent implements OnInit {
             this.toastr.error(el,"Error");
         });
     })
-  }
 
-  ques1SkillChange(event){
-    let index=this.selectSkill1.indexOf(event.target.value);
-    if(index == -1){
-      this.selectSkill1.push(event.target.value);
-    }else{
-      this.selectSkill1.splice(index, 1);
-    }
-  }
-
-  ques2SkillChange(event){
-    let index=this.selectSkill1.indexOf(event.target.value);
-    if(index == -1){
-      this.selectSkill1.push(event.target.value);
-    }else{
-      this.selectSkill1.splice(index, 1);
-    }
-  }
-  ques3SkillChange(event){
-    let index=this.selectSkill1.indexOf(event.target.value);
-    if(index == -1){
-      this.selectSkill1.push(event.target.value);
-    }else{
-      this.selectSkill1.splice(index, 1);
-    }
-  }  
-  ques4SkillChange(event){
-    let index=this.selectSkill1.indexOf(event.target.value);
-    if(index == -1){
-      this.selectSkill1.push(event.target.value);
-    }else{
-      this.selectSkill1.splice(index, 1);
-    }
   }
 
 }

@@ -1,0 +1,17 @@
+.form-container {
+    position: absolute;
+    top: 15vh;
+    left: 4vh;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #000;
+}
+
+
+/* 
+.bg {
+    background-image: url(../images/loginbg.png);
+    height: 100%;
+    background-size: 100%;
+} */
