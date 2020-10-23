@@ -65,7 +65,7 @@ class FeedbackController extends Controller
         }else{  
                 $feedback =new Feedback();
                 
-                $feedback = Feedback::whereEmail($request->email)->first();
+                // $feedback = Feedback::whereEmail($request->email)->first();
                 $feedback->lacturer_name=$request->lacturer_name;
                 $feedback->subject=$request->subject;
                 $feedback->ques1=$request->ques1;

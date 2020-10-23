@@ -39,30 +39,37 @@
                     </button>
                         </div>
                         <div class="modal-body">
+                          <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" name="email" class="form-control" id="addInputEmail" placeholder="Enter Student Email" required>
+                            </div>
+                          </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <select class="form-control" id="addInputSubjectName">
-                                        <option>Select Subject</option>
-                                        <option *ngFor ="let subject of subjects" [ngValue]="subject.subname">
-                                        {{ subject.subname}}
-                                        </option>
-                                    </select>
-                                </div> <br> <br>
-                                <div class="col-md-6">
-                                    <select class="form-control" id="addInputStaffName">
+                                    <select class="form-control" name="lacturer_name" id="addInputStaffName">
                                         <option>Select Lacturer Name</option>
                                         <option *ngFor ="let staff of staffs" [ngValue]="staff.name">
                                         {{staff.name}}
                                         </option>
                                     </select>
                                 </div>
+                                <div class="col-md-6">
+                                  <select class="form-control" name="subject" id="addInputSubjectName">
+                                      <option>Select Subject</option>
+                                      <option *ngFor ="let subject of subjects" [ngValue]="subject.subname">
+                                      {{ subject.subname}}
+                                      </option>
+                                  </select>
+                              </div> <br> <br>
+                              
                             </div>   
                             <br><br>
                            
                             <h5 class="text-warning">The lecture was structured and well organised?</h5>  
                         
                             <div class="col-md-12">
-                                <select class="form-control" id="addInputAsw1">
+                                <select class="form-control" name="ques1" id="addInputAsw1">
                                     <option value="vgood">
                                       Very Good
                                     </option>
@@ -81,7 +88,7 @@
                             <h5 class="text-warning">Learning material was accessible?</h5>  
                         
                             <div class="col-md-12">
-                              <select class="form-control" id="addInputAsw2">
+                              <select class="form-control" name="ques2" id="addInputAsw2">
                                   <option value="vgood">
                                     Very Good
                                   </option>
@@ -100,7 +107,7 @@
                           <h5 class="text-warning">The audio and visual connection was good?</h5>  
                         
                             <div class="col-md-12">
-                              <select class="form-control" id="addInputAsw3">
+                              <select class="form-control" name="ques3" id="addInputAsw3">
                                   <option value="vgood">
                                     Very Good
                                   </option>
@@ -119,7 +126,7 @@
                           <h5 class="text-warning">How did this effort compare to your expectations?</h5>  
                         
                             <div class="col-md-12">
-                              <select class="form-control" id="addInputAsw4">
+                              <select class="form-control" name="ques4" id="addInputAsw4">
                                   <option value="vgood">
                                     Very Good
                                   </option>
@@ -139,7 +146,7 @@
 
                             <h5 class="text-warning">Comments / Questions / Suggestions</h5>  
                             <div class="form-group">
-                              <textarea class="form-control" id="addInputAny" rows="3" placeholder="Write Somthing..."></textarea>
+                              <textarea class="form-control" name="other" id="addInputAny" rows="3" placeholder="Write Somthing..."></textarea>
                             </div>        
                         </div>
                         <div class="modal-footer">

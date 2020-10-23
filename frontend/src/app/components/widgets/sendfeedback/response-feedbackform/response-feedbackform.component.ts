@@ -19,6 +19,7 @@ export class ResponseFeedbackformComponent implements OnInit {
   
   public error=[];
   public form = {
+    email:null,
     subject : null,
     lacturer_name : null,
     ques1:null,
@@ -67,7 +68,7 @@ export class ResponseFeedbackformComponent implements OnInit {
   
   add(){
     var form=new FormData();
-
+    form.append("email", $("#addInputEmail").val());
     form.append("lacturer_name", $("#addInputStaffName").val());
     form.append("subject", $("#addInputSubjectName").val());
     form.append("ques1", $("#addInputAsw1").val());
