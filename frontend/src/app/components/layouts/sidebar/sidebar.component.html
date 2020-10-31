@@ -35,17 +35,28 @@
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Custom Components:</h6>
-          <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/student">Students</a>
-          <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/subject"> Subjects</a>
-          <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/staff">Staffs</a>
-          <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/batch">Batches</a>
+          <h6 class="collapse-header">Course Details:</h6>
           <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/course">Courses</a>
+          <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/subject"> Subjects</a>
+          <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/batch">Batches</a>
+          
+          <h6 class="collapse-header">Student Details:</h6>
+          <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/student">Students</a>
+          
+          <h6 class="collapse-header">Staff Details:</h6>
+          <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/staff">Staffs</a>
+          
+          <h6 class="collapse-header">Feedback Details:</h6>
           <a class="collapse-item" *ngIf="userType == 'admin' || 'hod' || 'staff'" routerLink="/feedback_result">Feedback Result</a>
           <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/feedback_request">Feedback Request</a>
+          <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/getfeedrequests">Get Requests Tokens</a>
+
+          <h6 class="collapse-header">History:</h6>
           <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/history">History</a>
+          
         </div>
       </div>
+      
     </li>
   
   

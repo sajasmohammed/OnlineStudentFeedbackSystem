@@ -19,7 +19,7 @@
       </a>
       <!-- Dropdown - User Information -->
       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-        <a *ngIf="userType == 'admin'" class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+        <a *ngIf="userType == 'admin'" class="dropdown-item" routerLink="/signup" data-toggle="modal" data-target="#logoutModal">
           <i class="fas fa-user-plus fa-sm fa-fw mr-2 text-gray-400"></i>
           Register User
         </a>

@@ -35,16 +35,100 @@
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Add</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
+                            <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                        <div class="modal-body">
-                          <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="email" name="email" class="form-control" id="addInputEmail" placeholder="Enter Student Email" required>
+                      <div class="modal-body">
+<!--                           
+                          <form #ResetForm=ngForm (ngSubmit)="onSubmit($event)">
+
+                           
+                            <div class="form-group">
+                              <div class="col-sm-10 center-block">
+                                  <select class="form-control" name="lacturer_name">
+                                      <option>Select Lacturer Name</option>
+                                      <option *ngFor ="let staff of staffs" [ngValue]="staff.name">
+                                      {{staff.name}}
+                                      </option>
+                                  </select>
+                              </div>
                             </div>
-                          </div>
+
+                            <div class="form-group">
+                              <div class="col-sm-10 center-block">
+                                <select class="form-control" name="subject" >
+                                    <option>Select Subject</option>
+                                    <option *ngFor ="let subject of subjects" [ngValue]="subject.subname">
+                                    {{subject.subname}}
+                                    </option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-sm-10 center-block">
+                                <h5 class="text-warning">The lecture was structured and well organised?</h5>
+                                  <div class="col-sm-12">
+                                    <input type="radio" name="ques1" value="verygood" class="col-sm-3"> <b> Very Good </b>
+                                    <input type="radio" name="ques1" value="good" class="col-sm-3">  <b>  Good </b>
+                                  </div>
+                                  <br>
+                                  <div class="col-sm-12">
+                                    <input type="radio" name="ques1" value="verygood" class="col-sm-3"> <b>Fair </b>                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" name="ques1" value="good" class="col-sm-3">  <b>Poor </b>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-sm-10 center-block">
+                                <h5 class="text-warning">The audio and visual connection was good?</h5>  
+                                <div class="col-sm-12">
+                                  <input type="radio" name="ques2" value="verygood" class="col-sm-3"> <b> Very Good </b>
+                                  <input type="radio" name="ques2" value="good" class="col-sm-3">  <b>  Good </b>
+                                </div>
+                                <br>
+                                <div class="col-sm-12">
+                                  <input type="radio" name="ques2" value="verygood" class="col-sm-3"> <b>Fair </b>                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  <input type="radio" name="ques2" value="good" class="col-sm-3" >  <b>Poor </b>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-sm-10 center-block">
+                                <h5 class="text-warning">Learning material was accessible?</h5>  
+                                <div class="col-sm-12">
+                                  <input type="radio" name="ques3" value="verygood" class="col-sm-3"> <b> Very Good </b>
+                                  <input type="radio" name="ques3" value="good" class="col-sm-3">  <b>  Good </b>
+                                </div>
+                                <br>
+                                <div class="col-sm-12">
+                                  <input type="radio" name="ques3" value="verygood" class="col-sm-3"> <b>Fair </b>                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  <input type="radio" name="ques3" value="good" class="col-sm-3" >  <b>Poor </b>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-sm-10 center-block">
+                                <h5 class="text-warning">How did this effort compare to your expectations?</h5>  
+                                <div class="col-sm-12">
+                                  <input type="radio" name="ques4" value="verygood" class="col-sm-3"> <b> Very Good </b>
+                                  <input type="radio" name="ques4" value="good" class="col-sm-3">  <b>  Good </b>
+                                </div>
+                                <br>
+                                <div class="col-sm-12">
+                                  <input type="radio" name="ques4" value="verygood" class="col-sm-3"> <b>Fair </b>                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  <input type="radio" name="ques4" value="good" class="col-sm-3" >  <b>Poor </b>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <h5 class="text-warning">Comments / Questions / Suggestions</h5>  <br>
+                              <textarea class="form-control" name="other" rows="3" placeholder="Write Somthing..." [(ngModel)]="form.other" required></textarea>
+                            </div>   
+
+                          </form> -->
+            
+                           
                             <div class="row">
                                 <div class="col-md-6">
                                     <select class="form-control" name="lacturer_name" id="addInputStaffName">
@@ -147,11 +231,11 @@
                             <h5 class="text-warning">Comments / Questions / Suggestions</h5>  
                             <div class="form-group">
                               <textarea class="form-control" name="other" id="addInputAny" rows="3" placeholder="Write Somthing..."></textarea>
-                            </div>        
+                            </div>         
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button (click)="add()" type="button" class="btn btn-primary">Save changes</button>
+                            <button (click)="onSubmit()"  type="button" class="btn btn-primary">Submit</button>
                         </div>
                     </div>
                 </div>

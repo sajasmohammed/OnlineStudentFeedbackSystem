@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Feedback extends Model
 {
     protected $fillable = [
-       'email', 'lacturer_name', 'subject', 'ques1', 'ques2', 'ques3', 'ques4', 'other'      
+      'lacturer_name', 'subject', 'ques1', 'ques2', 'ques3', 'ques4', 'other'      
     ];  
 }

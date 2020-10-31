@@ -18,6 +18,8 @@ Route::group([
     Route::post('responseFeedbackFormLink', 'FeedbackController@process');
     Route::any('addFeedbacks', 'FeedbackController@store');
     Route::any('showFeedbacks', 'FeedbackController@index');
+    Route::any('showFeedbacksRequests', 'FeedTokenController@index');
+    Route::any('removeToken', 'FeedTokenController@destroy');
     
     //Subject Api
     Route::any('showSubjects', 'SubjectController@index');

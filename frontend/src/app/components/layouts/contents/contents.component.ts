@@ -12,13 +12,12 @@ import { Component, OnInit } from '@angular/core';
 export class ContentsComponent implements OnInit {
 
   public loggedIn: boolean;
-  private sum=0;  
-  private value; 
 
   constructor(
     private http: HttpClient,
   ) { 
     this.getFeedback();
+   
   }
 
   feedbacks:any;
@@ -32,13 +31,14 @@ export class ContentsComponent implements OnInit {
   });
   }
 
+  
+
   public getRowsValue(flag) {
     if (flag === null) {
       return this.feedbacks.length;
     } else {
-      return this.feedbacks.filter(i => (i.state == flag)).length;
+      return this.feedbacks.filter(i => (i.ques1 == flag)).length;
     }
   }
 
- 
 }

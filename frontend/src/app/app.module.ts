@@ -33,6 +33,7 @@ import { MainContainerComponent } from './components/layouts/main-container/main
 import { FeedbackresultComponent } from './components/widgets/feedbackresult/feedbackresult.component';
 import { HistoryComponent } from './components/widgets/history/history.component';
 import { SidebarComponent } from './components/layouts/sidebar/sidebar.component';
+import { FeedrequestsComponent } from './components/widgets/feedrequests/feedrequests.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { SidebarComponent } from './components/layouts/sidebar/sidebar.component
     FeedbackresultComponent,
     HistoryComponent,
     SidebarComponent,
+    FeedrequestsComponent,
     
     
   ],

@@ -1,5 +1,4 @@
 import { Router, ActivatedRoute } from '@angular/router';
-import { Feedback } from './feedback.model';
 import { AuthService } from './../../../../Services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
@@ -17,18 +16,6 @@ export class ResponseFeedbackformComponent implements OnInit {
 
   public loggedIn: boolean;
   
-  public error=[];
-  public form = {
-    email:null,
-    subject : null,
-    lacturer_name : null,
-    ques1:null,
-    ques2:null,
-    ques3:null,
-    ques4:null,
-    other:null,
-    resetToken :null
-  }
 
   constructor(
     private route:ActivatedRoute,
@@ -40,9 +27,7 @@ export class ResponseFeedbackformComponent implements OnInit {
   ) { 
     this.getStaffs();
     this.getSubject();
-    route.queryParams.subscribe(params => {
-      this.form.resetToken = params['token']
-    });
+    
   }
 
   id:any="";
@@ -66,9 +51,8 @@ export class ResponseFeedbackformComponent implements OnInit {
   });
   }
   
-  add(){
+  onSubmit(){
     var form=new FormData();
-    form.append("email", $("#addInputEmail").val());
     form.append("lacturer_name", $("#addInputStaffName").val());
     form.append("subject", $("#addInputSubjectName").val());
     form.append("ques1", $("#addInputAsw1").val());
@@ -79,6 +63,7 @@ export class ResponseFeedbackformComponent implements OnInit {
     
     this.jarwis.addFeedback(form).subscribe(res=>{
       var r:any=res;
+      
       if(r.message){
         this.toastr.success(r.message)    
         // event.target.disabled = true;

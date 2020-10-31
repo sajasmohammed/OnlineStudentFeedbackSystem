@@ -31,7 +31,7 @@ class FeedbackRequestController extends Controller
 
     public function createToken($email)
     {
-        $oldToken = DB::table('feedbacks')->where('email', $email)->first();
+        $oldToken = DB::table('feed_tokens')->where('email', $email)->first();
 
         if ($oldToken) {
             return $oldToken->token;
@@ -44,7 +44,7 @@ class FeedbackRequestController extends Controller
 
     public function saveToken($token, $email)
     {
-        DB::table('feedbacks')->insert([
+        DB::table('feed_tokens')->insert([
             'email' => $email,
             'token' => $token,
             'created_at' => Carbon::now()

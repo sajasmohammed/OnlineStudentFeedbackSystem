@@ -24,7 +24,7 @@ class FeedbackRequest extends FormRequest
     public function rules()
     {
         return [
-            'email'=>'required',
+            
             'lacturer_name'=>'required',
             'subject'=>'required',
             'ques1'=>'required',

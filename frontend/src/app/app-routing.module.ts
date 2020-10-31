@@ -1,3 +1,4 @@
+import { FeedrequestsComponent } from './components/widgets/feedrequests/feedrequests.component';
 import { HistoryComponent } from './components/widgets/history/history.component';
 import { MainContainerComponent } from './components/layouts/main-container/main-container.component';
 import { FeedbackresultComponent } from './components/widgets/feedbackresult/feedbackresult.component';
@@ -42,6 +43,7 @@ const appRoute: Routes=[
   { path: 'feedback_result', component: FeedbackresultComponent, canActivate: [AfterLoginService]},
   { path: 'main-container', component: MainContainerComponent, canActivate: [AfterLoginService]},
   { path: 'history', component: HistoryComponent, canActivate: [AfterLoginService]},
+  { path: 'getfeedrequests', component: FeedrequestsComponent, canActivate: [AfterLoginService]},
   { path: '**', component: PageNotFoundComponent },
 
 ];

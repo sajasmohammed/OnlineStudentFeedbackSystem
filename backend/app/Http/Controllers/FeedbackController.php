@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Validator;
 use mysql_xdevapi\Exception;
 
 use Illuminate\Support\Facades\Response;
-
 use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests\FeedbackRequestController;
@@ -24,6 +23,7 @@ class FeedbackController extends Controller
     public function index()
     {
         return Feedback::get();
+        
     }
 
     public function process(FeedbackRequest $request)
@@ -33,21 +33,17 @@ class FeedbackController extends Controller
 
     private function getFeedbackTableRow(Request $request)
     {
-        return DB::table('feedbacks')->where(['email' => $request->email,'token' =>$request->resetToken]);
+        return DB::table('feed_tokens')->where(['email' => $request->email,'token' =>$request->resetToken]);
     }
 
     private function tokenNotFoundResponse()
     {
         return response()->json(['error' => 'Token or Email is incorrect'],Response::HTTP_UNPROCESSABLE_ENTITY);
     }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
+               
         $validator = Validator::make($request->all(),[
 
             'lacturer_name'=>'required',
@@ -64,9 +60,6 @@ class FeedbackController extends Controller
             return response()->json(['error' => $validator->errors()->all()], 409);   
         }else{  
                 $feedback =new Feedback();
-                
-                // $feedback = Feedback::whereEmail($request->email)->first();
-                $feedback->email=$request->email;
                 $feedback->lacturer_name=$request->lacturer_name;
                 $feedback->subject=$request->subject;
                 $feedback->ques1=$request->ques1;
@@ -76,8 +69,7 @@ class FeedbackController extends Controller
                 $feedback->other=$request->other;
                 $feedback->save();
                 $this->getFeedbackTableRow($request)->delete();
-                // return response()->json(['data'=>'Submited Successfully'],Response::HTTP_CREATED);
-
+        
                 $arr=array('status'=>'true', 'message'=>'Added Successfully...');    
                     
         }
