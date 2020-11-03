@@ -1,7 +1,7 @@
 <!-- Content Row -->
 <div class="row">
 
-  <div class="col-xl-3 col-md-6 mb-4">
+  <div class="col-xl-3 col-md-6 mb-4" *ngIf="userType == 'admin' || 'hod' || 'staff'">
     <div class="card border-left-primary shadow h-100 py-2">
       <div class="card-body">
         <div class="row no-gutters align-items-center">
@@ -10,33 +10,65 @@
             <div class="h5 mb-0 font-weight-bold text-gray-800">{{getRowsValue(null)}}</div>
           </div>
           <div class="col-auto">
-            <i class="fas fa-sort-numeric-up fa-2x text-gray-300"></i>
+            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
           </div>
         </div>
       </div>
     </div>
   </div>
   
-  <div class="col-xl-3 col-md-6 mb-4">
+  <div class="col-xl-3 col-md-6 mb-4" *ngIf="userType == 'admin' || 'hod' || 'staff' || 'student'">
     <div class="card border-left-primary shadow h-100 py-2">
       <div class="card-body">
         <div class="row no-gutters align-items-center">
           <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Feedbacks</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getRowsValue(null)}}</div>
+            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Students</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getStudentRowsValue(null)}}</div>
           </div>
           <div class="col-auto">
-            <i class="fas fa-sort-numeric-up fa-2x text-gray-300"></i>
+            <i class="fas fa-graduation-cap fa-2x text-gray-300"></i>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="col-xl-6 col-md-12 mb-8"></div>  
+  
+  <div class="col-xl-3 col-md-6 mb-4" *ngIf="userType == 'admin' || 'hod' || 'staff'">
+    <div class="card border-left-primary shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Mail Sended</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getFeedTokensRowValues(null)}}</div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-mail-bulk fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-md-6 mb-4" *ngIf="userType == 'admin' || 'hod' || 'staff'" >
+    <div class="card border-left-primary shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Staffs</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getStaffsRowValues(null)}}</div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-people-arrows fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   
-  <div class="col-xl-6 col-md-12 mb-8">
+  
+  <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'admin' || 'hod'">
     <div class="card border-left-success shadow h-100 py-2">
       <div class="card-body">
         <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">The lecture was structured and well organised?</div>
@@ -63,7 +95,7 @@
     </div>
   </div>  
 
-  <div class="col-xl-6 col-md-12 mb-8">
+  <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'admin' || 'hod'">
     <div class="card border-left-success shadow h-100 py-2">
       <div class="card-body">
         <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Learning material was accessible?</div>
@@ -90,7 +122,7 @@
     </div>
   </div>  
 
-  <div class="col-xl-6 col-md-12 mb-8">
+  <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'admin' || 'hod'">
     <div class="card border-left-success shadow h-100 py-2">
       <div class="card-body">
         <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">The audio and visual connection was good?</div>
@@ -117,7 +149,7 @@
     </div>
   </div>  
 
-  <div class="col-xl-6 col-md-12 mb-8">
+  <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'admin' || 'hod'">
     <div class="card border-left-success shadow h-100 py-2">
       <div class="card-body">
         <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">The audio and visual connection was good?</div>
@@ -144,5 +176,3 @@
     </div>
   </div>  
 
-
-<!-- Content Row -->

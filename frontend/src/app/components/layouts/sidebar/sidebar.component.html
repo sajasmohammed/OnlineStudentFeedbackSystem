@@ -14,7 +14,16 @@
   
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-      <a class="nav-link" routerLink="/hod-profile">
+      <a class="nav-link"  *ngIf="userType == 'admin'" routerLink="/admin-profile">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Dashboard</span></a>
+      <a class="nav-link"  *ngIf="userType == 'hod'" routerLink="/hod-profile">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      <a class="nav-link"  *ngIf="userType == 'student'" routerLink="/student-profile">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Dashboard</span></a>
+      <a class="nav-link"  *ngIf="userType == 'staff'" routerLink="/staff-profile">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
     </li>

@@ -34,6 +34,7 @@ import { FeedbackresultComponent } from './components/widgets/feedbackresult/fee
 import { HistoryComponent } from './components/widgets/history/history.component';
 import { SidebarComponent } from './components/layouts/sidebar/sidebar.component';
 import { FeedrequestsComponent } from './components/widgets/feedrequests/feedrequests.component';
+import { StudentSignupComponent } from './components/auth/student-signup/student-signup.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { FeedrequestsComponent } from './components/widgets/feedrequests/feedreq
     HistoryComponent,
     SidebarComponent,
     FeedrequestsComponent,
+    StudentSignupComponent,
     
     
   ],

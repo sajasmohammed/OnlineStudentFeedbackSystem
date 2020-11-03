@@ -1,3 +1,4 @@
+import { StudentSignupComponent } from './components/auth/student-signup/student-signup.component';
 import { FeedrequestsComponent } from './components/widgets/feedrequests/feedrequests.component';
 import { HistoryComponent } from './components/widgets/history/history.component';
 import { MainContainerComponent } from './components/layouts/main-container/main-container.component';
@@ -44,6 +45,7 @@ const appRoute: Routes=[
   { path: 'main-container', component: MainContainerComponent, canActivate: [AfterLoginService]},
   { path: 'history', component: HistoryComponent, canActivate: [AfterLoginService]},
   { path: 'getfeedrequests', component: FeedrequestsComponent, canActivate: [AfterLoginService]},
+  { path: 'student-signup', component: StudentSignupComponent, canActivate: [BeforeLoginService]},
   { path: '**', component: PageNotFoundComponent },
 
 ];

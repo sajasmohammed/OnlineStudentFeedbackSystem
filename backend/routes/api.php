@@ -51,11 +51,6 @@ Route::group([
     Route::any('updateStudents', 'StudentController@update');
     Route::any('deleteStudents', 'StudentController@destroy');
 
-    //Student Api
-    Route::any('showStudents', 'StudentController@index');
-    Route::any('addStudents', 'StudentController@store');
-    Route::any('updateStudents', 'StudentController@update');
-    Route::any('deleteStudents', 'StudentController@destroy');
 
     //History Api
     Route::any('showHistory', 'HistoryController@index');
