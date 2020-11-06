@@ -14,16 +14,7 @@
   
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-      <a class="nav-link"  *ngIf="userType == 'admin'" routerLink="/admin-profile">
-        <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Dashboard</span></a>
-      <a class="nav-link"  *ngIf="userType == 'hod'" routerLink="/hod-profile">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      <a class="nav-link"  *ngIf="userType == 'student'" routerLink="/student-profile">
-        <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Dashboard</span></a>
-      <a class="nav-link"  *ngIf="userType == 'staff'" routerLink="/staff-profile">
+      <a class="nav-link"  *ngIf="userType == 'admin' || 'hod' || 'student' || 'satff'" routerLink="/dashboard">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
     </li>
@@ -44,23 +35,27 @@
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Course Details:</h6>
+          <h6 class="collapse-header" *ngIf="userType == 'admin'">Course Details:</h6>
           <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/course">Courses</a>
           <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/subject"> Subjects</a>
           <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/batch">Batches</a>
           
-          <h6 class="collapse-header">Student Details:</h6>
+          <h6 class="collapse-header" *ngIf="userType == 'admin'">Student Details:</h6>
           <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/student">Students</a>
           
-          <h6 class="collapse-header">Staff Details:</h6>
+          <h6 class="collapse-header" *ngIf="userType == 'admin'">Staff Details:</h6>
           <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/staff">Staffs</a>
           
-          <h6 class="collapse-header">Feedback Details:</h6>
-          <a class="collapse-item" *ngIf="userType == 'admin' || 'hod' || 'staff'" routerLink="/feedback_result">Feedback Result</a>
+          <h6 class="collapse-header" *ngIf="userType == 'admin'">Feedback Details:</h6>
+          <h6 class="collapse-header" *ngIf="userType == 'hod'">Feedback Details:</h6>
+          <h6 class="collapse-header" *ngIf="userType == 'staff'">Feedback Details:</h6>
+          <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/feedback_result">Feedback Result</a>
+          <a class="collapse-item" *ngIf="userType == 'hod'" routerLink="/feedback_result">Feedback Result</a>
+          <a class="collapse-item" *ngIf="userType == 'staff'" routerLink="/feedback_result">Feedback Result</a>
           <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/feedback_request">Feedback Request</a>
           <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/getfeedrequests">Get Requests Tokens</a>
 
-          <h6 class="collapse-header">History:</h6>
+          <h6 class="collapse-header" *ngIf="userType == 'admin'">History:</h6>
           <a class="collapse-item" *ngIf="userType == 'admin'" routerLink="/history">History</a>
           
         </div>

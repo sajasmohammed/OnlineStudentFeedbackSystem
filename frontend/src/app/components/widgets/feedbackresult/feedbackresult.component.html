@@ -21,23 +21,14 @@
 
           
           <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4"  *ngIf="loggedIn">
+          <div class="d-sm-flex align-items-center justify-content-between mb-4" *ngIf="userType == 'hod'">
             <h1 class="h3 mb-0 text-gray-800">Feedback Results</h1>
-            <!-- <button class="d-none d-sm-inline-block btn btn-sm btn-outline-dark shadow-sm" (click)="submitRequest()"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</button>
+            <button class="d-none d-sm-inline-block btn btn-sm btn-outline-dark shadow-sm" ><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</button>
   
-            <button class="d-none d-sm-inline-block btn btn-sm btn-outline-dark shadow-sm" (click)="downloadRequest(1)"><i class="fas fa-download fa-sm text-white-50"></i> Download PDF</button> -->
+            <!-- <button class="d-none d-sm-inline-block btn btn-sm btn-outline-dark shadow-sm" (click)="downloadRequest(1)"><i class="fas fa-download fa-sm text-white-50"></i> Download PDF</button> --> -->
           </div>
        
-          <!-- <div class="chart">
-            <canvas baseChart
-                [datasets]="barChartData"
-                [labels]="barChartLables"
-                [options]="barChartOptions"
-                [legend]="barChartLegend"
-                [chartType]="barChartType">
-
-            </canvas>
-          </div> -->
+        
           <!-- Feedbacks Row -->
           
             <div class="container-xl">
@@ -61,10 +52,11 @@
                                     <th>#</th>
                                     <th>Lacturer</th>
                                     <th>Subject</th>
-                                    <th>Answser 1</th>
-                                    <th>Answser 2</th>
-                                    <th>Answser 3</th>
-                                    <th>Answser 4</th>
+                                    <th>LECTURE WAS STRUCTURED AND WELL ORGANISED</th>
+                                    <th>LEARNING MATERIAL WAS ACCESSIBLE</th>
+                                    <th>AUDIO AND VISUAL CONNECTION WAS GOOD</th>
+                                    <th>Effort compare to your expectations</th>
+                                    <th>Other</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -76,6 +68,7 @@
                                     <td>{{feed.ques2}}</td>
                                     <td>{{feed.ques3}}</td>
                                     <td>{{feed.ques4}}</td>    
+                                    <td>{{feed.other}}</td>    
                                 </tr>
                             </tbody>
                         </table>

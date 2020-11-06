@@ -35,7 +35,7 @@ export class ResponseFeedbackformComponent implements OnInit {
   subjects:any;
   searchText;
 
-  
+  userType = '';
   ngOnInit(): void {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);  
   }
@@ -51,7 +51,7 @@ export class ResponseFeedbackformComponent implements OnInit {
   });
   }
   
-  onSubmit(){
+  onSubmit(event){
     var form=new FormData();
     form.append("lacturer_name", $("#addInputStaffName").val());
     form.append("subject", $("#addInputSubjectName").val());
@@ -66,7 +66,7 @@ export class ResponseFeedbackformComponent implements OnInit {
       
       if(r.message){
         this.toastr.success(r.message)    
-        // event.target.disabled = true;
+        event.target.disabled = true;
       }else{
         this.toastr.error(r.errormessage)
       }

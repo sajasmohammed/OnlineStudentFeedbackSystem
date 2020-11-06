@@ -1,21 +1,15 @@
-import { ChartsModule } from 'ng2-charts';
 import { TopbarComponent } from './components/layouts/topbar/topbar.component';
 import { FooterComponent } from './components/layouts/footer/footer.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule}  from '@angular/forms'
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/auth/login/login.component';
-import { ProfileComponent } from './components/dashboard/profile/profile.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { RequestResetComponent } from './components/auth/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './components/auth/password/response-reset/response-reset.component';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
-import { HodProfileComponent } from './components/dashboard/hod-profile/hod-profile.component';
-import { StudentProfileComponent } from './components/dashboard/student-profile/student-profile.component';
-import { StaffProfileComponent } from './components/dashboard/staff-profile/staff-profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { DataTablesModule } from 'angular-datatables';
@@ -35,19 +29,15 @@ import { HistoryComponent } from './components/widgets/history/history.component
 import { SidebarComponent } from './components/layouts/sidebar/sidebar.component';
 import { FeedrequestsComponent } from './components/widgets/feedrequests/feedrequests.component';
 import { StudentSignupComponent } from './components/auth/student-signup/student-signup.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     LoginComponent,
-    ProfileComponent,
     SignupComponent,
     RequestResetComponent,
     ResponseResetComponent,
-    HodProfileComponent,
-    StudentProfileComponent,
-    StaffProfileComponent,
     FooterComponent,
     TopbarComponent,
     CourseComponent,
@@ -64,6 +54,7 @@ import { StudentSignupComponent } from './components/auth/student-signup/student
     SidebarComponent,
     FeedrequestsComponent,
     StudentSignupComponent,
+    DashboardComponent,
     
     
   ],
@@ -77,7 +68,6 @@ import { StudentSignupComponent } from './components/auth/student-signup/student
     Ng2SearchPipeModule,
     NgxPaginationModule,  
     NgxPaginationModule,
-    ChartsModule,
     ToastrModule.forRoot()
   ],
   providers: [

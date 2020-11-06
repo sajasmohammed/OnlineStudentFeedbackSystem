@@ -23,7 +23,7 @@ export class FeedbackresultComponent implements OnInit {
   searchText;
   p:number=1;
 
-
+  userType='';
   ngOnInit(): void {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);
   }

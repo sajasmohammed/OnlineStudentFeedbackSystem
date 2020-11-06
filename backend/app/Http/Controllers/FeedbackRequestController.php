@@ -59,7 +59,7 @@ class FeedbackRequestController extends Controller
     public function failedResponse()
     {
         return response()->json([
-            'error' => 'Email does\'t found on our database'
+            'error' => 'Email does\'t found on student table'
         ], Response::HTTP_NOT_FOUND);
     }
 

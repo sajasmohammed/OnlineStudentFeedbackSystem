@@ -46,6 +46,7 @@ ngOnInit(): void {
 
   clickTokenBtn(){
     this.removeToken();
+    this.toastr.success('Token Removed');
   }
 
 }

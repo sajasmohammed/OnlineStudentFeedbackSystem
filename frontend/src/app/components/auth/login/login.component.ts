@@ -45,26 +45,26 @@ export class LoginComponent implements OnInit {
     if(data.user_type == 'admin'){
       this.Token.handle(data.access_token);
       this.Auth.changeAuthStatus(true);
-      this.router.navigateByUrl('/admin-profile');
+      this.router.navigateByUrl('/dashboard');
       this.successMessage();
 
     }
     else if(data.user_type == 'hod'){
       this.Token.handle(data.access_token);
       this.Auth.changeAuthStatus(true);
-      this.router.navigateByUrl('/hod-profile');
-      this.successMessage();
-    }
-    else if(data.user_type == 'student'){
-      this.Token.handle(data.access_token);
-      this.Auth.changeAuthStatus(true);
-      this.router.navigateByUrl('/student-profile');
+      this.router.navigateByUrl('/dashboard');
       this.successMessage();
     }
     else if(data.user_type == 'staff'){
       this.Token.handle(data.access_token);
       this.Auth.changeAuthStatus(true);
-      this.router.navigateByUrl('/staff-profile');
+      this.router.navigateByUrl('/dashboard');
+      this.successMessage();
+    }
+    else if(data.user_type == 'student'){
+      this.Token.handle(data.access_token);
+      this.Auth.changeAuthStatus(true);
+      this.router.navigateByUrl('/dashboard');
       this.successMessage();
     }else{
       this.Auth.changeAuthStatus(false);

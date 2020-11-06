@@ -23,7 +23,7 @@
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4"  *ngIf="loggedIn">
             <h1 class="h3 mb-0 text-gray-800">Feedbacks Response</h1>
-            <!-- <Button data-toggle="modal" data-target="#Modal_add" class="btn btn-warning">Submit Feedback</Button> -->
+            <Button data-toggle="modal" data-target="#Modal_add" class="btn btn-warning">Submit Feedback</Button>
           </div>
         
           <!-- Feedback Response Row --> 
@@ -39,95 +39,6 @@
                             </button>
                         </div>
                       <div class="modal-body">
-<!--                           
-                          <form #ResetForm=ngForm (ngSubmit)="onSubmit($event)">
-
-                           
-                            <div class="form-group">
-                              <div class="col-sm-10 center-block">
-                                  <select class="form-control" name="lacturer_name">
-                                      <option>Select Lacturer Name</option>
-                                      <option *ngFor ="let staff of staffs" [ngValue]="staff.name">
-                                      {{staff.name}}
-                                      </option>
-                                  </select>
-                              </div>
-                            </div>
-
-                            <div class="form-group">
-                              <div class="col-sm-10 center-block">
-                                <select class="form-control" name="subject" >
-                                    <option>Select Subject</option>
-                                    <option *ngFor ="let subject of subjects" [ngValue]="subject.subname">
-                                    {{subject.subname}}
-                                    </option>
-                                </select>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <div class="col-sm-10 center-block">
-                                <h5 class="text-warning">The lecture was structured and well organised?</h5>
-                                  <div class="col-sm-12">
-                                    <input type="radio" name="ques1" value="verygood" class="col-sm-3"> <b> Very Good </b>
-                                    <input type="radio" name="ques1" value="good" class="col-sm-3">  <b>  Good </b>
-                                  </div>
-                                  <br>
-                                  <div class="col-sm-12">
-                                    <input type="radio" name="ques1" value="verygood" class="col-sm-3"> <b>Fair </b>                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" name="ques1" value="good" class="col-sm-3">  <b>Poor </b>
-                                  </div>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <div class="col-sm-10 center-block">
-                                <h5 class="text-warning">The audio and visual connection was good?</h5>  
-                                <div class="col-sm-12">
-                                  <input type="radio" name="ques2" value="verygood" class="col-sm-3"> <b> Very Good </b>
-                                  <input type="radio" name="ques2" value="good" class="col-sm-3">  <b>  Good </b>
-                                </div>
-                                <br>
-                                <div class="col-sm-12">
-                                  <input type="radio" name="ques2" value="verygood" class="col-sm-3"> <b>Fair </b>                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                  <input type="radio" name="ques2" value="good" class="col-sm-3" >  <b>Poor </b>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <div class="col-sm-10 center-block">
-                                <h5 class="text-warning">Learning material was accessible?</h5>  
-                                <div class="col-sm-12">
-                                  <input type="radio" name="ques3" value="verygood" class="col-sm-3"> <b> Very Good </b>
-                                  <input type="radio" name="ques3" value="good" class="col-sm-3">  <b>  Good </b>
-                                </div>
-                                <br>
-                                <div class="col-sm-12">
-                                  <input type="radio" name="ques3" value="verygood" class="col-sm-3"> <b>Fair </b>                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                  <input type="radio" name="ques3" value="good" class="col-sm-3" >  <b>Poor </b>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <div class="col-sm-10 center-block">
-                                <h5 class="text-warning">How did this effort compare to your expectations?</h5>  
-                                <div class="col-sm-12">
-                                  <input type="radio" name="ques4" value="verygood" class="col-sm-3"> <b> Very Good </b>
-                                  <input type="radio" name="ques4" value="good" class="col-sm-3">  <b>  Good </b>
-                                </div>
-                                <br>
-                                <div class="col-sm-12">
-                                  <input type="radio" name="ques4" value="verygood" class="col-sm-3"> <b>Fair </b>                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                  <input type="radio" name="ques4" value="good" class="col-sm-3" >  <b>Poor </b>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="form-group">
-                              <h5 class="text-warning">Comments / Questions / Suggestions</h5>  <br>
-                              <textarea class="form-control" name="other" rows="3" placeholder="Write Somthing..." [(ngModel)]="form.other" required></textarea>
-                            </div>   
-
-                          </form> -->
-            
                            
                             <div class="row">
                                 <div class="col-md-6">
@@ -145,10 +56,9 @@
                                       {{ subject.subname}}
                                       </option>
                                   </select>
-                              </div> <br> <br>
+                              </div> 
                               
-                            </div>   
-                            <br><br>
+                            </div>   <br>
                            
                             <h5 class="text-warning">The lecture was structured and well organised?</h5>  
                         
@@ -167,8 +77,7 @@
                                       Poor
                                     </option>
                                 </select>
-                            </div> <br> <br>
-
+                            </div><br> 
                             <h5 class="text-warning">Learning material was accessible?</h5>  
                         
                             <div class="col-md-12">
@@ -186,7 +95,7 @@
                                     Poor
                                   </option>
                               </select>
-                          </div> <br> <br>
+                          </div><br>
 
                           <h5 class="text-warning">The audio and visual connection was good?</h5>  
                         
@@ -205,7 +114,7 @@
                                     Poor
                                   </option>
                               </select>
-                          </div> <br> <br>
+                          </div><br>
 
                           <h5 class="text-warning">How did this effort compare to your expectations?</h5>  
                         
@@ -224,10 +133,7 @@
                                     Poor
                                   </option>
                               </select>
-                          </div> <br> <br>
-                       
-
-
+                          </div> <br>
                             <h5 class="text-warning">Comments / Questions / Suggestions</h5>  
                             <div class="form-group">
                               <textarea class="form-control" name="other" id="addInputAny" rows="3" placeholder="Write Somthing..."></textarea>
@@ -235,29 +141,12 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button (click)="onSubmit()"  type="button" class="btn btn-primary">Submit</button>
+                            <button (click)="onSubmit($event)"   type="button" class="btn btn-primary">Submit</button>
                         </div>
                     </div>
                 </div>
             </div>
           <!-- End Feedback Response Row -->
-
-             
-              <!-- Basic Card Example -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-info"> Please Read this Privacy Meesage</h6>
-                </div>
-                <div class="card-body">
-                    <h6>This feedback system is developed for students to valited the learnig envirement of students. Here we used Token Based Feedback System so the page is highly secure Compare with other systems and we restricted your details for this feedback so you can submit anythink about the particuler staff or lacturer and we will send you a feedback request to every months so please support us to valited the learning envirement.
-                    </h6><br><br>
-                    
-                      <Button data-toggle="modal" data-target="#Modal_add" class="btn btn-warning center-block">Submit Feedback</Button>
-                    
-                  </div>
-              </div>
-              
-
 
         </div>
         <!-- /.container-fluid -->
