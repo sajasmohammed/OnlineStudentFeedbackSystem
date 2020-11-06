@@ -24,12 +24,14 @@ class FeedbackRequest extends FormRequest
     public function rules()
     {
         return [
+            
             'lacturer_name'=>'required',
             'subject'=>'required',
             'ques1'=>'required',
             'ques2'=>'required',
             'ques3'=>'required',
             'ques4'=>'required',
+            'other'=>'required',
         ];
     }
 }

@@ -1,7 +1,5 @@
 import { AuthService } from './../../../Services/auth.service';
 import { HttpClient } from '@angular/common/http';
-import { ToastrService } from 'ngx-toastr';
-import { JarwisService } from './../../../Services/jarwis.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -14,19 +12,18 @@ export class FeedbackresultComponent implements OnInit {
   public loggedIn: boolean;
   
   constructor(
-    private jarwis: JarwisService,
-    private toastr: ToastrService,
     private http: HttpClient,
     private Auth: AuthService
   ) { 
     this.getFeedbacks();
-  }
 
+  }
   id:any="";
   feedbacks:any;
   searchText;
   p:number=1;
 
+  userType='';
   ngOnInit(): void {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);
   }
@@ -36,4 +33,5 @@ export class FeedbackresultComponent implements OnInit {
       this.feedbacks = res;
   });
   }
+
 }

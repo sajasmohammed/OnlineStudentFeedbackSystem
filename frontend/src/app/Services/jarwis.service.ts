@@ -93,6 +93,7 @@ export class JarwisService {
   addFeedback(data) {
     return this.http.post(`${this.baseUrl}/addFeedbacks`, data);
   }
+  
 
   //History API  
   addHistories(data) {

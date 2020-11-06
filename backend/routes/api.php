@@ -15,9 +15,11 @@ Route::group([
 
     //FeedbackForm Api
     Route::post('requestFeedbackFormLink', 'FeedbackRequestController@sendEmail');
-    Route::post('responseFeedbackFormLink', 'ChangePasswordController@process');
+    Route::post('responseFeedbackFormLink', 'FeedbackController@process');
     Route::any('addFeedbacks', 'FeedbackController@store');
     Route::any('showFeedbacks', 'FeedbackController@index');
+    Route::any('showFeedbacksRequests', 'FeedTokenController@index');
+    Route::any('removeToken', 'FeedTokenController@destroy');
     
     //Subject Api
     Route::any('showSubjects', 'SubjectController@index');
@@ -49,14 +51,10 @@ Route::group([
     Route::any('updateStudents', 'StudentController@update');
     Route::any('deleteStudents', 'StudentController@destroy');
 
-    //Student Api
-    Route::any('showStudents', 'StudentController@index');
-    Route::any('addStudents', 'StudentController@store');
-    Route::any('updateStudents', 'StudentController@update');
-    Route::any('deleteStudents', 'StudentController@destroy');
 
     //History Api
     Route::any('showHistory', 'HistoryController@index');
     Route::any('addHistory', 'HistoryController@store');
 
+  
 });

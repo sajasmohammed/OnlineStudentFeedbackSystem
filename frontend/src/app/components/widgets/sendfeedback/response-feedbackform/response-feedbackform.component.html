@@ -23,7 +23,7 @@
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4"  *ngIf="loggedIn">
             <h1 class="h3 mb-0 text-gray-800">Feedbacks Response</h1>
-            <!-- <Button data-toggle="modal" data-target="#Modal_add" class="btn btn-warning">Submit Feedback</Button> -->
+            <Button data-toggle="modal" data-target="#Modal_add" class="btn btn-warning">Submit Feedback</Button>
           </div>
         
           <!-- Feedback Response Row --> 
@@ -35,85 +35,118 @@
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Add</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
+                            <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                        <div class="modal-body">
+                      <div class="modal-body">
+                           
                             <div class="row">
                                 <div class="col-md-6">
-                                    <select class="form-control" id="addInputSubjectName">
-                                        <option>Select Subject</option>
-                                        <option *ngFor ="let subject of subjects" [ngValue]="subject.subname">
-                                        {{ subject.subname}}
-                                        </option>
-                                    </select>
-                                </div> <br> <br>
-                                <div class="col-md-6">
-                                    <select class="form-control" id="addInputStaffName">
+                                    <select class="form-control" name="lacturer_name" id="addInputStaffName">
                                         <option>Select Lacturer Name</option>
                                         <option *ngFor ="let staff of staffs" [ngValue]="staff.name">
-                                        {{ staff.name}}
+                                        {{staff.name}}
                                         </option>
                                     </select>
                                 </div>
-                            </div>   
+                                <div class="col-md-6">
+                                  <select class="form-control" name="subject" id="addInputSubjectName">
+                                      <option>Select Subject</option>
+                                      <option *ngFor ="let subject of subjects" [ngValue]="subject.subname">
+                                      {{ subject.subname}}
+                                      </option>
+                                  </select>
+                              </div> 
+                              
+                            </div>   <br>
+                           
+                            <h5 class="text-warning">The lecture was structured and well organised?</h5>  
+                        
+                            <div class="col-md-12">
+                                <select class="form-control" name="ques1" id="addInputAsw1">
+                                    <option value="vgood">
+                                      Very Good
+                                    </option>
+                                    <option value="good">
+                                      Good
+                                    </option>
+                                    <option value="fair">
+                                      Fair
+                                    </option>
+                                    <option value="poor">
+                                      Poor
+                                    </option>
+                                </select>
+                            </div><br> 
+                            <h5 class="text-warning">Learning material was accessible?</h5>  
+                        
+                            <div class="col-md-12">
+                              <select class="form-control" name="ques2" id="addInputAsw2">
+                                  <option value="vgood">
+                                    Very Good
+                                  </option>
+                                  <option value="good">
+                                    Good
+                                  </option>
+                                  <option value="fair">
+                                    Fair
+                                  </option>
+                                  <option value="poor">
+                                    Poor
+                                  </option>
+                              </select>
+                          </div><br>
 
-                            <br>
+                          <h5 class="text-warning">The audio and visual connection was good?</h5>  
+                        
+                            <div class="col-md-12">
+                              <select class="form-control" name="ques3" id="addInputAsw3">
+                                  <option value="vgood">
+                                    Very Good
+                                  </option>
+                                  <option value="good">
+                                    Good
+                                  </option>
+                                  <option value="fair">
+                                    Fair
+                                  </option>
+                                  <option value="poor">
+                                    Poor
+                                  </option>
+                              </select>
+                          </div><br>
 
-                            <h5 class="text-warning">The content of the day was useful and interesting</h5>
-                            <div class="form-check" *ngFor="let obj of ques1Skill">  
-                              <input class="form-check-input" type="radio" name="exampleRadios1" id="addInputAsw1" value="{{obj.value}}" (change)="ques1SkillChange($event)" checked> {{obj.key}}
-                            </div>
-                            <br>
-
-                            <h5 class="text-warning">The lecture was structured and well organised</h5>
-                            <div class="form-check" *ngFor="let obj of ques1Skill">  
-                              <input class="form-check-input" type="radio" name="exampleRadios2" id="addInputAsw2" value="{{obj.value}}" (change)="ques1SkillChange($event)" checked> {{obj.key}}
-                            </div>
-                            <br>
-
-                            <h5 class="text-warning">Learning material was accessible</h5>
-                            <div class="form-check" *ngFor="let obj of ques1Skill">  
-                              <input class="form-check-input" type="radio" name="exampleRadios3" id="addInputAsw3" value="{{obj.value}}" (change)="ques1SkillChange($event)" checked> {{obj.key}}
-                            </div>
-                            <br>
-
-                            <h5 class="text-warning">The audio and visual connection was good</h5>
-                            <div class="form-check" *ngFor="let obj of ques1Skill">  
-                              <input class="form-check-input" type="radio" name="exampleRadios4" id="addInputAsw4" value="{{obj.value}}" (change)="ques1SkillChange($event)" checked> {{obj.key}}
-                            </div>
-                            <br>
-
+                          <h5 class="text-warning">How did this effort compare to your expectations?</h5>  
+                        
+                            <div class="col-md-12">
+                              <select class="form-control" name="ques4" id="addInputAsw4">
+                                  <option value="vgood">
+                                    Very Good
+                                  </option>
+                                  <option value="good">
+                                    Good
+                                  </option>
+                                  <option value="fair">
+                                    Fair
+                                  </option>
+                                  <option value="poor">
+                                    Poor
+                                  </option>
+                              </select>
+                          </div> <br>
                             <h5 class="text-warning">Comments / Questions / Suggestions</h5>  
                             <div class="form-group">
-                              <textarea class="form-control" id="addInputAny" rows="3" placeholder="Write Somthing..."></textarea>
-                            </div>        
+                              <textarea class="form-control" name="other" id="addInputAny" rows="3" placeholder="Write Somthing..."></textarea>
+                            </div>         
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button (click)="add()" type="button" class="btn btn-primary">Save changes</button>
+                            <button (click)="onSubmit($event)"   type="button" class="btn btn-primary">Submit</button>
                         </div>
                     </div>
                 </div>
             </div>
           <!-- End Feedback Response Row -->
-
-             
-              <!-- Basic Card Example -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-info"> Please Read this Privacy Meesage</h6>
-                </div>
-                <div class="card-body">
-                    This feedback system is developed for students to valited the learnig envirement of students. Here we used Token Based Feedback System so the page is highly secure Compare with other systems and we restricted your details for this feedback so you can submit anythink about the particuler staff or lacturer and we will send you a feedback request to every months so please support us to valited the learning envirement.
-                    <br><br>
-                    
-                      <Button data-toggle="modal" data-target="#Modal_add" class="btn btn-warning center-block">Submit Feedback</Button>
-                    
-                  </div>
-              </div>
-              
-
 
         </div>
         <!-- /.container-fluid -->

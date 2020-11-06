@@ -9,13 +9,14 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./response-reset.component.css']
 })
 export class ResponseResetComponent implements OnInit {
-  public error=[];
   public form = {
     email : null,
     password : null,
     password_confirmation:null,
     resetToken :null
   }
+  public error=[];
+  
   constructor(
     private route:ActivatedRoute,
     private Jarwis: JarwisService,

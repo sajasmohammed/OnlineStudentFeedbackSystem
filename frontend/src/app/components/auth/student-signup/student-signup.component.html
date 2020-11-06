@@ -2,8 +2,9 @@
     <section class="row justify-content-center ">
         <section class="col-12 col-sm-6 col-md-3 ">
             <form class="form-container" #signupForm=ngForm (ngSubmit)="onSubmit()">
+                <div class="mt-2"><strong>Student Sign Up Here</strong></div>
 
-                <div class="alert alert-warning alert-dismissible fade show" role="alert" [hidden]="!error ">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert" [hidden]="!error">
                     <strong> {{error}}!</strong> You should check in on some of those fields below.
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
@@ -18,14 +19,6 @@
 
                 <div class="form-group">
                     <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Enter name" [(ngModel)]="form.name" required>
-                </div>
-                <div class="form-group">
-                    <select id="inputUserType3" class="form-control" name="user_type" [(ngModel)]="form.user_type" required>
-                        <option>User Type</option>
-                        <option value="admin">Admin</option>
-                        <option value="hod">HOD</option>
-                        <option value="staff">Satff</option>
-                    </select>
                 </div>
 
                 <div class="form-group">
@@ -44,7 +37,7 @@
 
                 <button type="submit" class="btn btn-primary btn-block" [disabled]="!signupForm.valid">Sign Up</button>
                 <br>
-                <a routerLink="/dashboard" class="btn btn-info btn-block">Back</a>
+                <a routerLink="/" class="btn btn-info btn-block">Back</a>
 
             </form>
         </section>
