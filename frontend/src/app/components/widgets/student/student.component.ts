@@ -34,14 +34,9 @@ export class StudentComponent implements OnInit {
    searchText;
    p:number=1;
 
-   dtOptions:any ={};
-
+  
   ngOnInit(): void {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);
-
-    this.dtOptions={
-      
-    }
   }
 
    getStudents() {
@@ -132,4 +127,16 @@ export class StudentComponent implements OnInit {
       } 
     });
   }
+
+  printComponent(cmpName) {
+    let printContents = document.getElementById(cmpName).innerHTML;
+    let originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+
+    window.print();
+
+    document.body.innerHTML = originalContents;
+  }
+
 }
