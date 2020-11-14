@@ -62,7 +62,8 @@
                                     <td>{{batch.batch_name}}</td>
                                     <td>
                                         <a href="#" (click)="showUpdateModel(batch.id)" class="text-warning" data-toggle="tooltip" data-toggle="modal" data-target="#Modal_update"><i class="fas fa-edit fa-sm text-wrap"></i></a>
-                                        &nbsp;&nbsp;<a href="#" (click)="delete(batch.id)" class="text-danger" data-toggle="tooltip"><i class="fas fa-trash fa-sm text-wrap"></i></a>
+                                        &nbsp;&nbsp;
+                                        <button href="#" (click)="delete(batch.id)" class="text-danger" data-toggle="tooltip"><i class="fas fa-trash fa-sm text-danger"></i></button>
                                     </td>
                                 </tr>
                             </tbody>

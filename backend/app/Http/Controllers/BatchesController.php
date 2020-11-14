@@ -48,8 +48,12 @@ class BatchesController extends Controller
             return response()->json(['error' => $validator->errors()->all()], 409);   
         }else{  
             $check_batchno= Batches::where('batch_no', $request->batch_no)->get()->toArray(); 
+            $check_batchname= Batches::where('batch_name', $request->batch_name)->get()->toArray(); 
             if($check_batchno){
                 $arr=array('status'=>'true', 'errormessage'=>'Batch Already Exists...');  
+            }
+            else if($check_batchname){
+                $arr=array('status'=>'true', 'errormessage'=>'Batch Name Already Exists...');  
             }
             else{
             
@@ -102,13 +106,23 @@ class BatchesController extends Controller
         if($validator->fails()){
             return response()->json(['error' => $validator->errors()->all()], 409);   
         }else{ 
-
+            $check_batchno= Batches::where('batch_no', $request->batch_no)->get()->toArray(); 
+            $check_batchname= Batches::where('batch_name', $request->batch_name)->get()->toArray(); 
+            if($check_batchno){
+                $arr=array('status'=>'true', 'errormessage'=>'Batch No Already Exists...');  
+                if($check_batchname){
+                    $arr=array('status'=>'true', 'errormessage'=>'Batch Name Already Exists...');  
+                }
+            }
+            
+            else{
+            
                 $batches=Batches::find($request->id);
                 $batches->batch_no=$request->batch_no;
                 $batches->batch_name=$request->batch_name;
                 $batches->save();
                 $arr=array('status'=>'true', 'message'=>'Batch Updated Successfully...');  
-               
+            }
         }
         echo json_encode($arr);
     }

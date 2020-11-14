@@ -34,8 +34,14 @@ export class StudentComponent implements OnInit {
    searchText;
    p:number=1;
 
+   dtOptions:any ={};
+
   ngOnInit(): void {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);
+
+    this.dtOptions={
+      
+    }
   }
 
    getStudents() {
@@ -79,7 +85,7 @@ export class StudentComponent implements OnInit {
     })
 
   }
-  delete(id){
+  deleteID(id){
      this.jarwis.deleteStudent(id).subscribe(res=>{
       var r:any=res;
         this.toastr.success(r.message);
