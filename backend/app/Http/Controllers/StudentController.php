@@ -52,7 +52,7 @@ class StudentController extends Controller
             $check_studentid= Student::where('student_id', $request->student_id)->get()->toArray();  
             $check_studentemail= Student::where('student_email', $request->student_email)->get()->toArray();  
             if($check_studentid){
-                $arr=array('status'=>'true', 'errormessage'=>'Batch No Already Exists...');  
+                $arr=array('status'=>'true', 'errormessage'=>'Student ID Already Exists...');  
             }
             else if($check_studentemail){
                 $arr=array('status'=>'true', 'errormessage'=>'Email Already Exists...');  
@@ -113,12 +113,13 @@ class StudentController extends Controller
         }else{  
             $check_studentid= Student::where('student_id', $request->student_id)->get()->toArray();  
             $check_studentemail= Student::where('student_email', $request->student_email)->get()->toArray();  
-            if($check_studentid){
-                $arr=array('status'=>'true', 'errormessage'=>'Batch No Already Exists...');  
-            }
-            else if($check_studentemail){
+            if($check_studentemail){
                 $arr=array('status'=>'true', 'errormessage'=>'Email Already Exists...');  
+                if($check_studentid){
+                    $arr=array('status'=>'true', 'errormessage'=>'Student ID Already Exists...');
+                }
             }
+           
             else{    
                 $student=Student::find($request->id);
                 $student->student_id=$request->student_id;

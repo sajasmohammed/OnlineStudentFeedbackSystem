@@ -31,4 +31,16 @@ export class MainContainerComponent implements OnInit {
     this.sideBarOpen = !this.sideBarOpen;
   }  
 
+  
+  printComponent(cmpName) {
+    let printContents = document.getElementById(cmpName).innerHTML;
+    let originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+
+    window.print();
+
+    document.body.innerHTML = originalContents;
+  }
+
 }

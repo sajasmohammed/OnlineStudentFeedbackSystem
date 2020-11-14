@@ -21,7 +21,6 @@ export class StudentSignupComponent implements OnInit {
   public response=null;
   constructor(
     private Jarwis: JarwisService,
-    private Token: TokenService,
     private notify: ToastrService
    
   ) { }
@@ -34,7 +33,6 @@ export class StudentSignupComponent implements OnInit {
     );
   }
   handleResponse(data) {
-    this.Token.handle(data.access_token);
     this.notify.success("Account Successfully Created");
  }
 

@@ -66,332 +66,336 @@
     </div>
   </div>
 
+  <div class="row"  id="print1">
+
+    <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'admin'" >
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">The lecture was structured and well organised?</div>
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-12">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value1()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value2()}}</div>
+            </div>
+  
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value3()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value4()}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+  
+                                         
+    <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'hod'">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">The lecture was structured and well organised?</div>
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-12">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value1()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value2()}}</div>
+            </div>
+  
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value3()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value4()}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+  
+    <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'staff'">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">The lecture was structured and well organised?</div>
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-12">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value1()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value2()}}</div>
+            </div>
+  
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value3()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value4()}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+  
+    <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'admin'">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Learning material was accessible?</div>
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-12">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value1()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value2()}}</div>
+            </div>
+  
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value3()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value4()}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+  
+    <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'hod'">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Learning material was accessible?</div>
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-12">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value1()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value2()}}</div>
+            </div>
+  
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value3()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value4()}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'staff'">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Learning material was accessible?</div>
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-12">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value1()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value2()}}</div>
+            </div>
+  
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value3()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value4()}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
   
   
-  <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'admin'">
-    <div class="card border-left-success shadow h-100 py-2">
-      <div class="card-body">
-        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">The lecture was structured and well organised?</div>
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-12">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value1()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value2()}}</div>
-          </div>
-
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value3()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value4()}}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>  
-
-  <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'hod'">
-    <div class="card border-left-success shadow h-100 py-2">
-      <div class="card-body">
-        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">The lecture was structured and well organised?</div>
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-12">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value1()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value2()}}</div>
-          </div>
-
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value3()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value4()}}</div>
+    <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'admin'">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">The audio and visual connection was good?</div>
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-12">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value1()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value2()}}</div>
+            </div>
+  
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value3()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value4()}}</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>  
-
-  <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'staff'">
-    <div class="card border-left-success shadow h-100 py-2">
-      <div class="card-body">
-        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">The lecture was structured and well organised?</div>
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-12">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value1()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value2()}}</div>
-          </div>
-
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value3()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues1Value4()}}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>  
-
-  <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'admin'">
-    <div class="card border-left-success shadow h-100 py-2">
-      <div class="card-body">
-        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Learning material was accessible?</div>
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-12">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value1()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value2()}}</div>
-          </div>
-
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value3()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value4()}}</div>
+    </div>  
+  
+    <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'hod'">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">The audio and visual connection was good?</div>
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-12">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value1()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value2()}}</div>
+            </div>
+  
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value3()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value4()}}</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>  
-
-  <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'hod'">
-    <div class="card border-left-success shadow h-100 py-2">
-      <div class="card-body">
-        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Learning material was accessible?</div>
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-12">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value1()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value2()}}</div>
-          </div>
-
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value3()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value4()}}</div>
+    </div>  
+  
+    <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'staff'">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">The audio and visual connection was good?</div>
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-12">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value1()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value2()}}</div>
+            </div>
+  
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value3()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value4()}}</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </div>  
+  
+    <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'admin'">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Effort compare to your expectations?</div>
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-12">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value1()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value2()}}</div>
+            </div>
+  
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value3()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value4()}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+  
+    <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'hod'">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Effort compare to your expectations?</div>
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-12">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value1()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value2()}}</div>
+            </div>
+  
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value3()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value4()}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+  
+    <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'staff'">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Effort compare to your expectations?</div>
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-12">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value1()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value2()}}</div>
+            </div>
+  
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value3()}}</div>
+            </div>
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value4()}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
   </div>
   
-  <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'staff'">
-    <div class="card border-left-success shadow h-100 py-2">
-      <div class="card-body">
-        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Learning material was accessible?</div>
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-12">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value1()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value2()}}</div>
-          </div>
 
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value3()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues2Value4()}}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>  
-
-
-  <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'admin'">
-    <div class="card border-left-success shadow h-100 py-2">
-      <div class="card-body">
-        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">The audio and visual connection was good?</div>
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-12">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value1()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value2()}}</div>
-          </div>
-
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value3()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value4()}}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>  
-
-  <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'hod'">
-    <div class="card border-left-success shadow h-100 py-2">
-      <div class="card-body">
-        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">The audio and visual connection was good?</div>
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-12">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value1()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value2()}}</div>
-          </div>
-
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value3()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value4()}}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>  
-
-  <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'staff'">
-    <div class="card border-left-success shadow h-100 py-2">
-      <div class="card-body">
-        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">The audio and visual connection was good?</div>
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-12">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value1()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value2()}}</div>
-          </div>
-
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value3()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues3Value4()}}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>  
-
-  <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'admin'">
-    <div class="card border-left-success shadow h-100 py-2">
-      <div class="card-body">
-        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Effort compare to your expectations?</div>
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-12">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value1()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value2()}}</div>
-          </div>
-
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value3()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value4()}}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>  
-
-  <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'hod'">
-    <div class="card border-left-success shadow h-100 py-2">
-      <div class="card-body">
-        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Effort compare to your expectations?</div>
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-12">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value1()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value2()}}</div>
-          </div>
-
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value3()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value4()}}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>  
-
-  <div class="col-xl-6 col-md-12 mb-8" *ngIf="userType == 'staff'">
-    <div class="card border-left-success shadow h-100 py-2">
-      <div class="card-body">
-        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Effort compare to your expectations?</div>
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-12">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Very Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value1()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Good</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value2()}}</div>
-          </div>
-
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fair</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value3()}}</div>
-          </div>
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poor</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{getQues4Value4()}}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>  
 
 
    <!-- Basic Card Example -->

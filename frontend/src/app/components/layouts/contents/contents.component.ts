@@ -139,4 +139,5 @@ return this.feedbacks.filter(i => (i.ques4 == 'fair')).length;
 public getQues4Value4() {
 return this.feedbacks.filter(i => (i.ques4 == 'poor')).length;
 }
+
 }

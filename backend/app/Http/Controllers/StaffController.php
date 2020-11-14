@@ -48,8 +48,12 @@ class StaffController extends Controller
             return response()->json(['error' => $validator->errors()->all()], 409);   
         }else{  
             $check_subject= Staff::where('subject', $request->subject)->get()->toArray();  
+            $check_name= Staff::where('name', $request->name)->get()->toArray();  
             if($check_subject){
                 $arr=array('status'=>'true', 'errormessage'=>'Subject Already Exists...');  
+            }
+            else if($check_name){
+                $arr=array('status'=>'true', 'errormessage'=>'Name Already Exists...');  
             }
             else{
                 $staff =new Staff();
@@ -100,13 +104,23 @@ class StaffController extends Controller
    
         if($validator->fails()){
             return response()->json(['error' => $validator->errors()->all()], 409);   
-        }else{    
+        }else{   
+            $check_subject= Staff::where('subject', $request->subject)->get()->toArray();  
+            $check_name= Staff::where('name', $request->name)->get()->toArray();  
+            if($check_subject){
+                $arr=array('status'=>'true', 'errormessage'=>'Subject Already Exists...');  
+                if($check_name){
+                    $arr=array('status'=>'true', 'errormessage'=>'Name Already Exists...');  
+                }
+            }
+           
+            else{ 
                 $staff=Staff::find($request->id);
                 $staff->name=$request->name;
                 $staff->subject=$request->subject;
                 $staff->save();
                 $arr=array('status'=>'true', 'message'=>'Staff Updated Successfully...');    
-                   
+            }     
         }
         echo json_encode($arr);
     }

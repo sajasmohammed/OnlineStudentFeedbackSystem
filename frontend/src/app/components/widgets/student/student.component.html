@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                             <br>
-                            <table class="table table-striped table-hover table-bordered ">
+                            <table class="table table-striped table-hover table-bordered">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -65,7 +65,7 @@
                                         <td>{{student.student_email}}</td>
                                         <td>
                                             <a href="#" (click)="showUpdateModel(student.id)" class="text-warning" data-toggle="tooltip" data-toggle="modal" data-target="#Modal_update"><i class="fas fa-edit fa-sm text-wrap"></i></a> &nbsp;&nbsp;
-                                            <a href="#" (click)="delete(student.id)" class="text-danger" data-toggle="tooltip"><i class="fas fa-trash fa-sm text-danger"></i></a>
+                                            <button  (click)="deleteID(student.id)" class="text-danger" data-toggle="tooltip"><i class="fas fa-trash fa-sm text-danger"></i></button>
                                         </td>
                                     </tr>
                                 </tbody>
